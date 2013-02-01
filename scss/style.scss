@@ -1,0 +1,227 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+ @import "base";
+ @import "font-awesome";
+
+ body{
+//background: image-url('grid.gif') 0 12px;
+}
+
+
+
+html {
+	height: 100%;  
+}
+
+
+body {
+	padding: 0;
+	background: #f8f8f8;
+	height: 100%;
+	min-height: 100%;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 2em; 
+}
+
+
+img {
+	max-width: 100%;
+	min-height: 1px; 
+}
+
+
+header {
+	h1 {
+		margin: 0;
+		text-shadow: 0 1px 0 black;
+		font-size: 2.5em;
+		line-height: 1.5em;
+		@include rhythm(0,0.5,0.5,0);
+	}
+	h2 {
+		border-top: 5px solid black;
+		margin-top: 0em;
+		padding-top: 0.625em;
+		padding-bottom: 0.625em;
+		margin-bottom: 0em; }
+	}
+	ul{
+		@include cf();
+		margin: 0;
+		width: 100%;
+		padding: 0;
+		@include rhythm(1,0,0,1);
+		li{
+			height: 2em;
+			margin-bottom: 0.5em;
+			a {
+				height:2em;
+				background:#ccc;
+				@include background-image(linear-gradient(#f1f1f1, darken(#f1f1f1,10%)));
+				@include border-radius(3px);
+				@include transition(0.2s);
+				font-weight:bold;
+				border: 1px solid darken(#f1f1f1, 5%);
+				line-height: 2em;
+				display: block;
+				text-shadow: 0 1px 0 white;
+				position: relative;
+				overflow: hidden;
+				color:$black;
+				text-decoration: none;
+				span {
+					color: blue;
+					font-weight: normal;
+					font-size: 0.75em;
+					text-decoration: none; 
+				}
+				i{
+					text-shadow: 2px 2px 2px white;
+					text-decoration: none;
+					color: #000;
+					margin: 0 0.5em;
+				}
+				&:hover{
+					top:3px;
+					@include box-shadow(0 -3pz 10px darken(#f1f1f1, 5%));
+				}
+			}
+		}
+		&.row-fluid{
+			li:nth-child(2n+1) {
+				clear:right;
+				margin-left:0 !important;
+			}
+			li{
+				
+					a{
+						@include background-image(linear-gradient(#fcfcfc, darken(#fcfcfc,10%)));
+						border-color: darken(#fcfcfc, 5%);
+						padding:0 1em;
+						span{
+							display:none;
+						}
+					}
+
+			}
+		}
+	}
+
+
+
+
+
+
+/*
+MEDIA QUERIES
+*/
+@media only screen and (min-width: 481px) {
+
+
+} // end of media query*/
+
+
+@media only screen and (min-width: 768px) {
+
+
+} // end of media query*/
+
+
+@media only screen and (min-width: 1030px) {
+
+} // end of media query*/
+
+
+
+/*RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with
+other displays with a 2x resolution. You can also create a media
+query for retina AND a certain size if you want. Go Nuts.
+*/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+
+} // end of media query
+
+
+/*
+PRINT STYLESHEET
+*/
+@media print {
+	* {
+		background: transparent !important;
+		color: black !important;
+		text-shadow: none !important;
+		filter:none !important;
+		-ms-filter: none !important;
+	}
+
+	a, a:visited {
+		color: #444 !important;
+		text-decoration: underline;
+
+        // show links on printed pages
+        &:after {
+        	content: " (" attr(href) ")";
+        }
+
+        // show title too
+        abbr[title]:after {
+        	content: " (" attr(title) ")";
+        }
+    }
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+    	content: "";
+    }
+
+    pre, blockquote {
+    	border: 1px solid #999;
+    	page-break-inside: avoid;
+    }
+
+    thead {
+    	display: table-header-group;
+    }
+
+    tr, img {
+    	page-break-inside: avoid;
+    }
+
+    img {
+    	max-width: 100% !important;
+    }
+
+    @page {
+    	margin: 0.5cm;
+    }
+
+    p, h2, h3 {
+    	orphans: 3;
+    	widows: 3;
+    }
+
+    h2,
+    h3 {
+    	page-break-after: avoid;
+    }
+
+    // hide content people who print don't need to see
+    .sidebar,
+    .page-navigation,
+    .wp-prev-next,
+    .respond-form,
+    nav {
+    	display: none;
+    }
+}
+
