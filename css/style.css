@@ -3132,11 +3132,11 @@ ul.icons {
 .icon-folder-open-alt:before {
   content: "\f115"; }
 
-/* line 15, ../scss/style.scss */
+/* line 26, ../scss/style.scss */
 html {
   height: 100%; }
 
-/* line 20, ../scss/style.scss */
+/* line 31, ../scss/style.scss */
 body {
   padding: 0;
   background: #f8f8f8;
@@ -3146,12 +3146,12 @@ body {
   max-width: 1200px;
   padding: 0 2em; }
 
-/* line 31, ../scss/style.scss */
+/* line 42, ../scss/style.scss */
 img {
   max-width: 100%;
   min-height: 1px; }
 
-/* line 38, ../scss/style.scss */
+/* line 49, ../scss/style.scss */
 header h1 {
   margin: 0;
   text-shadow: 0 1px 0 black;
@@ -3161,7 +3161,7 @@ header h1 {
   padding-top: 0.625em;
   padding-bottom: 0.625em;
   margin-bottom: 0em; }
-/* line 45, ../scss/style.scss */
+/* line 56, ../scss/style.scss */
 header h2 {
   border-top: 5px solid black;
   margin-top: 0em;
@@ -3169,7 +3169,7 @@ header h2 {
   padding-bottom: 0.625em;
   margin-bottom: 0em; }
 
-/* line 52, ../scss/style.scss */
+/* line 63, ../scss/style.scss */
 ul {
   *zoom: 1;
   margin: 0;
@@ -3188,11 +3188,11 @@ ul {
   /* line 30, ../scss/_base.scss */
   ul:after {
     clear: both; }
-  /* line 58, ../scss/style.scss */
+  /* line 69, ../scss/style.scss */
   ul li {
     height: 2em;
     margin-bottom: 0.5em; }
-    /* line 61, ../scss/style.scss */
+    /* line 72, ../scss/style.scss */
     ul li a {
       height: 2em;
       background: #ccc;
@@ -3217,40 +3217,124 @@ ul {
       overflow: hidden;
       color: #333333;
       text-decoration: none; }
-      /* line 76, ../scss/style.scss */
+      /* line 87, ../scss/style.scss */
       ul li a span {
         color: blue;
         font-weight: normal;
         font-size: 0.75em;
         text-decoration: none; }
-      /* line 82, ../scss/style.scss */
+      /* line 93, ../scss/style.scss */
       ul li a i {
         text-shadow: 2px 2px 2px white;
         text-decoration: none;
         color: #000;
         margin: 0 0.5em; }
-      /* line 88, ../scss/style.scss */
+      /* line 99, ../scss/style.scss */
       ul li a:hover {
         top: 3px;
         -webkit-box-shadow: 0 -3pz 10px #e4e4e4;
         -moz-box-shadow: 0 -3pz 10px #e4e4e4;
         box-shadow: 0 -3pz 10px #e4e4e4; }
-  /* line 95, ../scss/style.scss */
-  ul.row-fluid li:nth-child(2n+1) {
+  /* line 106, ../scss/style.scss */
+  ul.projects li:nth-child(2n+1) {
     clear: right;
     margin-left: 0 !important; }
-  /* line 101, ../scss/style.scss */
-  ul.row-fluid li a {
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fcfcfc), color-stop(100%, #e3e3e3));
-    background-image: -webkit-linear-gradient(#fcfcfc, #e3e3e3);
-    background-image: -moz-linear-gradient(#fcfcfc, #e3e3e3);
-    background-image: -o-linear-gradient(#fcfcfc, #e3e3e3);
-    background-image: linear-gradient(#fcfcfc, #e3e3e3);
-    border-color: #efefef;
+  /* line 112, ../scss/style.scss */
+  ul.projects li a {
     padding: 0 1em; }
-    /* line 105, ../scss/style.scss */
-    ul.row-fluid li a span {
+    /* line 114, ../scss/style.scss */
+    ul.projects li a span {
       display: none; }
+  /* line 10, ../scss/style.scss */
+  ul.projects li:nth-child(1) a {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #033255), color-stop(100%, #011524));
+    background-image: -webkit-linear-gradient(#033255, #011524);
+    background-image: -moz-linear-gradient(#033255, #011524);
+    background-image: -o-linear-gradient(#033255, #011524);
+    background-image: linear-gradient(#033255, #011524);
+    border-color: #02243c;
+    color: white;
+    text-shadow: 0 1px 0 black; }
+  /* line 10, ../scss/style.scss */
+  ul.projects li:nth-child(2) a {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c0143c), color-stop(100%, #920f2e));
+    background-image: -webkit-linear-gradient(#c0143c, #920f2e);
+    background-image: -moz-linear-gradient(#c0143c, #920f2e);
+    background-image: -o-linear-gradient(#c0143c, #920f2e);
+    background-image: linear-gradient(#c0143c, #920f2e);
+    border-color: #a91235;
+    color: white;
+    text-shadow: 0 1px 0 black; }
+  /* line 10, ../scss/style.scss */
+  ul.projects li:nth-child(3) a {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0066b0), color-stop(100%, #00487d));
+    background-image: -webkit-linear-gradient(#0066b0, #00487d);
+    background-image: -moz-linear-gradient(#0066b0, #00487d);
+    background-image: -o-linear-gradient(#0066b0, #00487d);
+    background-image: linear-gradient(#0066b0, #00487d);
+    border-color: #005797;
+    color: white;
+    text-shadow: 0 1px 0 black; }
+  /* line 10, ../scss/style.scss */
+  ul.projects li:nth-child(4) a {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #000000), color-stop(100%, #000000));
+    background-image: -webkit-linear-gradient(#000000, #000000);
+    background-image: -moz-linear-gradient(#000000, #000000);
+    background-image: -o-linear-gradient(#000000, #000000);
+    background-image: linear-gradient(#000000, #000000);
+    border-color: black;
+    color: white;
+    text-shadow: 0 1px 0 black; }
+  /* line 10, ../scss/style.scss */
+  ul.projects li:nth-child(5) a {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #faa634), color-stop(100%, #f59006));
+    background-image: -webkit-linear-gradient(#faa634, #f59006);
+    background-image: -moz-linear-gradient(#faa634, #f59006);
+    background-image: -o-linear-gradient(#faa634, #f59006);
+    background-image: linear-gradient(#faa634, #f59006);
+    border-color: #f99b1b;
+    color: white;
+    text-shadow: 0 1px 0 black; }
+  /* line 10, ../scss/style.scss */
+  ul.projects li:nth-child(6) a {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #febe10), color-stop(100%, #daa001));
+    background-image: -webkit-linear-gradient(#febe10, #daa001);
+    background-image: -moz-linear-gradient(#febe10, #daa001);
+    background-image: -o-linear-gradient(#febe10, #daa001);
+    background-image: linear-gradient(#febe10, #daa001);
+    border-color: #f3b201;
+    color: white;
+    text-shadow: 0 1px 0 black; }
+  /* line 10, ../scss/style.scss */
+  ul.projects li:nth-child(7) a {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e40225), color-stop(100%, #b1021d));
+    background-image: -webkit-linear-gradient(#e40225, #b1021d);
+    background-image: -moz-linear-gradient(#e40225, #b1021d);
+    background-image: -o-linear-gradient(#e40225, #b1021d);
+    background-image: linear-gradient(#e40225, #b1021d);
+    border-color: #cb0221;
+    color: white;
+    text-shadow: 0 1px 0 black; }
+  /* line 10, ../scss/style.scss */
+  ul.projects li:nth-child(8) a {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #133d8d), color-stop(100%, #0d2a60));
+    background-image: -webkit-linear-gradient(#133d8d, #0d2a60);
+    background-image: -moz-linear-gradient(#133d8d, #0d2a60);
+    background-image: -o-linear-gradient(#133d8d, #0d2a60);
+    background-image: linear-gradient(#133d8d, #0d2a60);
+    border-color: #103377;
+    color: white;
+    text-shadow: 0 1px 0 black; }
+  /* line 10, ../scss/style.scss */
+  ul.projects li:nth-child(10) a {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff3a0a), color-stop(100%, #d62a00));
+    background-image: -webkit-linear-gradient(#ff3a0a, #d62a00);
+    background-image: -moz-linear-gradient(#ff3a0a, #d62a00);
+    background-image: -o-linear-gradient(#ff3a0a, #d62a00);
+    background-image: linear-gradient(#ff3a0a, #d62a00);
+    border-color: #f02f00;
+    color: white;
+    text-shadow: 0 1px 0 black; }
 
 /*
 MEDIA QUERIES
@@ -3264,7 +3348,7 @@ query for retina AND a certain size if you want. Go Nuts.
 PRINT STYLESHEET
 */
 @media print {
-  /* line 158, ../scss/style.scss */
+  /* line 198, ../scss/style.scss */
   * {
     background: transparent !important;
     color: black !important;
@@ -3272,54 +3356,54 @@ PRINT STYLESHEET
     filter: none !important;
     -ms-filter: none !important; }
 
-  /* line 166, ../scss/style.scss */
+  /* line 206, ../scss/style.scss */
   a, a:visited {
     color: #444444 !important;
     text-decoration: underline; }
-    /* line 171, ../scss/style.scss */
+    /* line 211, ../scss/style.scss */
     a:after, a:visited:after {
       content: " (" attr(href) ")"; }
-    /* line 176, ../scss/style.scss */
+    /* line 216, ../scss/style.scss */
     a abbr[title]:after, a:visited abbr[title]:after {
       content: " (" attr(title) ")"; }
 
-  /* line 183, ../scss/style.scss */
+  /* line 223, ../scss/style.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: ""; }
 
-  /* line 187, ../scss/style.scss */
+  /* line 227, ../scss/style.scss */
   pre, blockquote {
     border: 1px solid #999999;
     page-break-inside: avoid; }
 
-  /* line 192, ../scss/style.scss */
+  /* line 232, ../scss/style.scss */
   thead {
     display: table-header-group; }
 
-  /* line 196, ../scss/style.scss */
+  /* line 236, ../scss/style.scss */
   tr, img {
     page-break-inside: avoid; }
 
-  /* line 200, ../scss/style.scss */
+  /* line 240, ../scss/style.scss */
   img {
     max-width: 100% !important; }
 
   @page {
     margin: 0.5cm; }
 
-  /* line 208, ../scss/style.scss */
+  /* line 248, ../scss/style.scss */
   p, h2, h3 {
     orphans: 3;
     widows: 3; }
 
-  /* line 214, ../scss/style.scss */
+  /* line 254, ../scss/style.scss */
   h2,
   h3 {
     page-break-after: avoid; }
 
-  /* line 223, ../scss/style.scss */
+  /* line 263, ../scss/style.scss */
   .sidebar,
   .page-navigation,
   .wp-prev-next,

@@ -6,6 +6,17 @@
  @import "base";
  @import "font-awesome";
 
+@mixin color-buttons($color: #f0f0f0, $text-color:#fff) {
+	a{
+		@include background-image(linear-gradient($color, darken($color,10%)));
+		border-color: darken($color, 5%);
+		color:$text-color;
+		@include text-shadow(0 1px 0 invert($text-color));
+	}	
+}
+
+
+
  body{
 //background: image-url('grid.gif') 0 12px;
 }
@@ -91,22 +102,51 @@ header {
 				}
 			}
 		}
-		&.row-fluid{
+		&.projects{
 			li:nth-child(2n+1) {
 				clear:right;
 				margin-left:0 !important;
 			}
 			li{
 				
-					a{
-						@include background-image(linear-gradient(#fcfcfc, darken(#fcfcfc,10%)));
-						border-color: darken(#fcfcfc, 5%);
-						padding:0 1em;
-						span{
-							display:none;
-						}
+				a{
+					padding:0 1em;
+					span{
+						display:none;
 					}
-
+				}
+				&:nth-child(1) {
+					@include color-buttons(#033255);
+				}
+				&:nth-child(2) {
+					@include color-buttons(#c0143c, #fff);
+				}
+				&:nth-child(3) {
+					@include color-buttons(#0066b0, #fff);	
+				}
+				
+				&:nth-child(4) {
+					@include color-buttons(#000000);	
+						
+				}
+				&:nth-child(5) {
+					@include color-buttons(#faa634);
+				}
+				&:nth-child(6) {
+					@include color-buttons(#febe10);
+				}
+				&:nth-child(7) {
+						@include color-buttons(#e40225);
+				}
+				&:nth-child(8) {
+						@include color-buttons(#133d8d);
+				}
+				&:nth-child(9) {
+						
+				}
+				&:nth-child(10) {
+						@include color-buttons(#ff3a0a);
+				}
 			}
 		}
 	}
