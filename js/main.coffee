@@ -1,11 +1,12 @@
-do ($ = jQuery) ->
+###by default, coffeescript should wrap this definition in a function wrapper on compilation,
+making the class anonymous. Double check on launch!###
+
+class App
 
 	"use strict"
 
-	App =
-		init: ->
+	init: ->
+		console.log 'page custom JS running'
 
-	initialize = ->
-		App.init()
-
-	$(initialize);
+app = new App
+app.init()
