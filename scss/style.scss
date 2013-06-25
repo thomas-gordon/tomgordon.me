@@ -3,221 +3,222 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
- @import "base";
- @import "font-awesome";
+@import "base";
+@import "font-awesome";
 
-@mixin color-buttons($color: #f0f0f0, $text-color:#fff) {
-	a{
-		@include background-image(linear-gradient($color, darken($color,10%)));
+@mixin color-buttons($color: #f0f0f0, $text-color: #fff) {
+	a {
+		@include background-image(linear-gradient($color, darken($color, 10%)));
 		border-color: darken($color, 5%);
-		color:$text-color;
+		color: $text-color;
 		@include text-shadow(0 1px 0 invert($text-color));
-	}	
+	}
 }
 
 html {
-	height: 100%;  
+	height: 100%;
 }
 
 body {
 	padding: 0;
-	background:$white;
+	background: $white;
 	height: 100%;
 	min-height: 100%;
 	margin: 0 auto;
-
-	padding: 0 2em; 
+	padding: 0 2em;
+	max-width:1140px
 }
 
 img {
 	max-width: 100%;
-	min-height: 1px; 
+	min-height: 1px;
 }
 
-h1{
-	height:50px;
-	line-height:50px;
-	background:#000;
-	color:$white;
-	font-size:2em;
-	padding:0 0.25em;
-	margin-bottom:0.5em;
-	margin-top:0.25em;
+h1 span{
+	@include adjust-font-size-to(10px);
 }
 
-h3{
-	margin:1em 0;
+
+h3 {
+	margin: 1em 0;
 }
 
-.packery,.columns{
+.packery, .columns {
 	@include cf();
 }
-header, section{
-	border-bottom:10px solid #ccc;
+
+header {
+	border-bottom: 10px solid #ccc;
 }
 
-
-.pill-list{
+.pill-list {
 	@include cf();
-	padding:0;
-	ul{
+	padding: 0;
+	ul {
 		@include cf();
-		list-style:none;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		margin: 1em 0;
+	}
+
+}
+
+.column {
+	float: left;
+	width: 32.3333%;
+	margin-right: 1%;
+	margin-bottom:2em;
+	&.right {
+		float: right;
 		margin:0;
-		padding:0;
-		margin:1em 0;
 	}
-
 }
 
 
-.column{
-	float:left;
-	width:33.3333%;
-	margin-right:2%;
-}
 
-.columns{
+.pill-list {
 	@include cf();
-	.left,.right{
-		float:left;
-		width:48%;
-	}
-	.right{
-		float:right;
-	}
-}
-
-.pill-list{
-	@include cf(); list-style:none;
-	li{
-		float:left;
+	list-style: none;
+	li {
+		float: left;
 		margin: 0 0.25em 0.25em 0;
-		&.plain{
-			line-height:30px;
-			padding:0 0.5em;
-			color:#aaa;
-			text-shadow:#fbfbfb;
+		&.plain {
+			line-height: 30px;
+			padding: 0 0.5em;
+			color: #aaa;
+			text-shadow: #fbfbfb;
 		}
-		a{
-			color:$black;
-			text-decoration:none;
-			display:block;
-			position:relative;
-			padding:0 0 0 38px;
+		a {
+			color: $black;
+			text-decoration: none;
+			display: block;
+			position: relative;
+			height:38px;
+			width:30px;
+			margin-right:3px;
+			&:hover{
+				strong{
+					display:block;
+				}
+			}
 		}
-		i{
-			padding:3px;
-			font-size:20px;
+		i {
+			padding: 3px;
+			font-size: 20px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background: 003672;
+			color: #000;
+			width: 38px;
+			height: 30px;
+			line-height: 16px;
+			text-align: center;
+			border: 3px solid #000;
+			background: #fff;
+			text-shadow: 0 1px 0 #ccc;
+		}
+		strong {
+			display: block;
+			font-size:12px;
+			margin: 0;
 			position:absolute;
-			top:0px;
-			left:0px;
-			background:003672;
-			color:#000;
-			width:38px;
-			height:30px;
-			line-height:16px;
-			text-align:center;
-			border:3px solid #000;background:#fff;
-			text-shadow:0 1px 0 #ccc;
-		}
-		strong{
-			display:block;
-			background:$black;
-			color:#fff;
-			line-height:30px;
-			padding:0 8px;
-			margin:0;
-
-		}
-		span{
+			top:100%;
+			font-weight:normal;
+			left:50%;
 			display:none;
+			width:400px;
+		}
+		span {
+			display: none;
 		}
 	}
 }
 
-.projects{
+.projects {
 	@include cf();
 }
-.project-list{
-	@include cf(); list-style:none; padding:0;
-	li{
+
+.networks-list{
+	padding: 0;
+	list-style:none;
+	a{
+		span{
+			display:none
+		}
+	}
+}
+
+.project-list {
+	@include cf();
+	list-style: none;
+	padding: 0;
+	li {
 		margin: 0 0.25em 0.25em 0;
-		a{
-			color:$black;
-			text-decoration:none;
-			display:block;
+		a {
+			text-decoration: none;
+			display: block;
+			position: relative;
+			padding: 0;
+			display: inline-block;
+			line-height: 30px;
+			padding: 0 8px 0 0;
+			margin: 0;
 			position:relative;
-			padding:0;
-			isplay:block;
-			background:$black;
-			color:#fff;
-			line-height:30px;
-			padding:0 8px;
-			margin:0;
+			border-bottom:4px solid #f1f1f1;
 		}
 
 	}
 }
-
-
-
 
 /*
 MEDIA QUERIES
 */
 @media only screen and (max-width: 481px) {
 
-	.tile{
-		width:100%;
-		margin:0 0 0.25em 0;
-		&.plain{
-			color:#000;
-			text-transform:uppercase;
-			font-weight:bold;
-			padding-left:0;
-			margin-top:-0.25em;
-		}
-	}
-	ul{
-		li{
-			float:0;
-			width:100%;
-
+	.tile {
+		width: 100%;
+		margin: 0 0 0.25em 0;
+		&.plain {
+			color: #000;
+			text-transform: uppercase;
+			font-weight: bold;
+			padding-left: 0;
+			margin-top: -0.25em;
 		}
 	}
 
 	.left, .right,
-	.column{
-		margin-right:0;
-		width:100%;
-		float:none;
+	.column {
+		margin-right: 0;
+		width: 100%;
+		float: none;
 
 	}
-	.columns{
-		.left, .right{
-			margin-right:0;
-			width:100%;
-			float:none;
+	.columns {
+		.left, .right {
+			margin-right: 0;
+			width: 100%;
+			float: none;
 		}
 	}
 
+}
 
-
-} // end of media query*/
-
+// end of media query*/
 
 @media only screen and (min-width: 768px) {
 
+}
 
-} // end of media query*/
-
+// end of media query*/
 
 @media only screen and (min-width: 1030px) {
 
-} // end of media query*/
+}
 
-
+// end of media query*/
 
 /*RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with
@@ -229,9 +230,9 @@ query for retina AND a certain size if you want. Go Nuts.
 only screen and (min--moz-device-pixel-ratio: 1.5),
 only screen and (min-device-pixel-ratio: 1.5) {
 
+}
 
-} // end of media query
-
+// end of media query
 
 /*
 PRINT STYLESHEET
@@ -241,7 +242,7 @@ PRINT STYLESHEET
 		background: transparent !important;
 		color: black !important;
 		text-shadow: none !important;
-		filter:none !important;
+		filter: none !important;
 		-ms-filter: none !important;
 	}
 
@@ -249,61 +250,61 @@ PRINT STYLESHEET
 		color: #444 !important;
 		text-decoration: underline;
 
-        // show links on printed pages
-        &:after {
-        	content: " (" attr(href) ")";
-        }
+		// show links on printed pages
+		&:after {
+			content: " (" attr(href) ")";
+		}
 
-        // show title too
-        abbr[title]:after {
-        	content: " (" attr(title) ")";
-        }
-    }
+		// show title too
+		abbr[title]:after {
+			content: " (" attr(title) ")";
+		}
+	}
 
-    .ir a:after,
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-    	content: "";
-    }
+	.ir a:after,
+	a[href^="javascript:"]:after,
+	a[href^="#"]:after {
+		content: "";
+	}
 
-    pre, blockquote {
-    	border: 1px solid #999;
-    	page-break-inside: avoid;
-    }
+	pre, blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
 
-    thead {
-    	display: table-header-group;
-    }
+	thead {
+		display: table-header-group;
+	}
 
-    tr, img {
-    	page-break-inside: avoid;
-    }
+	tr, img {
+		page-break-inside: avoid;
+	}
 
-    img {
-    	max-width: 100% !important;
-    }
+	img {
+		max-width: 100% !important;
+	}
 
-    @page {
-    	margin: 0.5cm;
-    }
+	@page {
+		margin: 0.5cm;
+	}
 
-    p, h2, h3 {
-    	orphans: 3;
-    	widows: 3;
-    }
+	p, h2, h3 {
+		orphans: 3;
+		widows: 3;
+	}
 
-    h2,
-    h3 {
-    	page-break-after: avoid;
-    }
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
 
-    // hide content people who print don't need to see
-    .sidebar,
-    .page-navigation,
-    .wp-prev-next,
-    .respond-form,
-    nav {
-    	display: none;
-    }
+// hide content people who print don't need to see
+	.sidebar,
+	.page-navigation,
+	.wp-prev-next,
+	.respond-form,
+	nav {
+		display: none;
+	}
 }
 

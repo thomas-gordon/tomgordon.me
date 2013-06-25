@@ -13,6 +13,8 @@ $dark-grey:#dedede;
 
 @import "compass";
 
+
+
 /*
 http://compass-style.org/reference/compass/typography/vertical_rhythm/
 */
@@ -40,6 +42,11 @@ h1,h2,h3{
 	@include adjust-font-size-to(16px);
 	@include leader(1,16px);
 	@include trailer(1,16px);
+}
+h1{
+	@include adjust-font-size-to(36px);
+	@include leader(1,36px);
+	@include trailer(1,36px);
 }
 
 h4{
