@@ -182,7 +182,9 @@ nav{
 Content
 /*
 /*****************************************************************************/
-
+.site-content{
+	margin-bottom:1.5em;
+}
 
 	.container{
 		max-width:960px;
@@ -271,11 +273,15 @@ ul.posts {
 
 #site-footer {
 	color: #666;
-
 	overflow: hidden;
+	padding-top:1.4em;
+
+	border-top:0.1em solid #ccc;
 	.contact {
 		float: left;
 		margin-right: 3em;
+		margin: 0 3em 1.5em 0;
+		p{margin:0;}
 		a {
 			color: darken(#BADEFF,30%);
 			display:block;

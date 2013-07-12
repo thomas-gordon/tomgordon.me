@@ -1512,6 +1512,9 @@ nav a {
 Content
 /*
 /*****************************************************************************/
+.site-content {
+  margin-bottom: 1.5em; }
+
 .container {
   max-width: 960px; }
 
@@ -1579,10 +1582,15 @@ ul.posts {
 
 #site-footer {
   color: #666;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-top: 1.4em;
+  border-top: 0.1em solid #ccc; }
   #site-footer .contact {
     float: left;
-    margin-right: 3em; }
+    margin-right: 3em;
+    margin: 0 3em 1.5em 0; }
+    #site-footer .contact p {
+      margin: 0; }
     #site-footer .contact a {
       color: #2195ff;
       display: block; }
