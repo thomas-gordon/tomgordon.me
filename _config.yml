@@ -2,7 +2,6 @@ name: Tom Gordon
 pygments: true
 subname: Web developer
 permalink: /:categories/:day/:month/:year/:title.html
-comments: true
 navigation:
     - text: Blog
       url: /index.html
