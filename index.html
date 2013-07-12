@@ -1,142 +1,19 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
-<head>
+---
+layout: default
+title: Blog
+---
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Tom Gordon ::before {disorganised web} ::after{webby bliss}</title>
-    <meta name="description" content="Tom gordon, front-end developer and web enthusiast.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+<h2>Blog</h2>
 
-    <!--[if IE]>
-    <link href="css/ie.css" media="screen, projection" rel="stylesheet" type="text/css"/>
-    <script src="js/vendor/modernizr.js"></script>
-    <![endif]-->
+<ul class="posts">
+    {% for post in site.posts %}
+    <li>
+        <time>
+            <span>{{ post.date | date: "%d" }}</span>
+            <span>{{ post.date | date: "%B" }}</span>
+            <span>{{ post.date | date: "%Y" }}</span>
+        </time>
+        <span class="raquo">&raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
 
-</head>
-<body>
-<!--[if lt IE 7]>
-<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
-    today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
-    experience this site.</p>
-<![endif]-->
-
-<div class="wrapper">
-
-
-        <header>
-            <h1>Tom Gordon <span>Web developer working in Melbourne, Australia.</span></h1>                    <ul class="pill-list">
-            <li><a href="mailto:hi@tomgordon.me"><i class="icon-envelope"></i><strong>email me</strong>
-                <span>Direct line</span></a></li>
-
-            <li><a href="https://plus.google.com/u/1/108567154122123354707/" target="_blank"><i
-                    class="icon-google-plus"></i><strong>connect with me on hangouts</strong> <span>thomasgordon02@gmail.com</span></a></li>
-            <li><a href="https://github.com/thomas-gordon" target="_blank"><i
-                    class="icon-github"></i><strong>see my work on github</strong> <span>@thomas-gordon</span></a></li>
-            <li><a href="http://www.twitter.com/tomgwebdev" target="_blank"><i
-                    class="icon-twitter"></i><strong>follow my ramblings on twitter</strong> <span>@tomgwebdev</span></a></li>
-            <li>
-                <a href="http://www.linkedin.com/profile/view?id=46634189&trk=tab_pro"
-                   target="_blank"><i class="icon-linkedin"></i><strong>judge my linkedIn profile</strong> <span>More detail about my past</span></a></li>
-            <li><a
-                    href="https://docs.google.com/document/d/1Rw7b9PkSPXlfwEWWLziUkVCC5CsWF0Pmbv1R0jZssf8/edit?usp=sharing"
-                    target="_blank"><i class="icon-book"></i><strong>peruse my online resume</strong>
-                <span>Curated version of myself</span></a></li>
-            <li><a href="http://www.facebook.com/flancexander" target="_blank"><i
-                    class="icon-facebook"></i><strong>stalk my facebook</strong> <span>I develop on it every day.</span></a></li>
-        </ul>
-
-        </header>
-
-        <section class="my-work">
-
-            <p>Here are some example projects, along with some brief write ups of campaign based projects that have either ended, been
-                taken down or are no longer public. </p>
-            <p>I have a background in front end development but over the last 2 years the line has blurred so much I'm
-            now often responsible for completing entire systems from the wireframe stage, all the way through to backend development.</p>
-
-            <div class="projects">
-
-
-                <div class="column">
-                    <h3><i class="icon-hand-up"></i> Websites</h3>
-                    <ul class="project-list">
-                        <li><a href="http://stboots.github.io" title="" target="_blank">St Boots Workspace (2013)
-                        </a></li>
-                        <li><a href="http://www.emgevents.com" title="" target="_blank">EMG Events(2013)
-                        </a></li>
-                        <li><a href="http://www.hotels.com.au" target="_blank">Hotels.com.au (2011-12)
-                        </a></li>
-                        <li><a href="http://www.ormond.unimelb.edu.au/" target="_blank">Ormond College (2012)
-                        </a></li>
-                        <li><a href="http://www.stepbackthink.org/" target="_blank">Step back think (2012)
-                            </a></li>
-                        <li><a href="http://dfp.com.au/" target="_blank">DFP Recruitment (2012)</a>
-                        </li>
-                        <li><a href="http://www.drapacusa.com/" target="_blank">Drapac USA (2013)</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <h3> <i class="icon-hand-up"></i> <i class="icon-code"></i> Campaign Sites</h3>
-                    <ul class="project-list">
-                        <li><a href="https://www.evernote.com/shard/s238/sh/b3a618f5-71c9-4d91-8da1-4798945db623/b68295f391d9f74c868392755f61db61"title="" target="_blank">Officeworks <span>Event Registration</span> (2013)</a></li>
-                        <li><a href="https://www.evernote.com/shard/s238/sh/cf40e496-79c5-43b4-9252-ef962fae968a/e8c732d2c20bd14bc6a87faf80fd9e0a" title="" target="_blank">Tony Bianco <span>'Scan and Win'</span> (2013)
-                        </a></li>
-                        <li><a href="https://www.evernote.com/shard/s238/sh/de9ce065-e29d-442c-887e-c09ce8de40a6/c6dfce8546442805049609e42331f19e" title="" target="_blank">Aldo <span>'Ring my bell'</span> (2013)
-                        </a></li>
-                        <li><a href="https://www.evernote.com/shard/s238/sh/98bce0ce-b59d-4bc7-8665-9af129434ee6/12d2007fad05e72ab234ed73b104622c" title="" target="_blank">Redken <span>'For Men'</span> (2013)
-                        </a></li>
-                        <li><a href="https://www.evernote.com/shard/s238/sh/2b22e76b-8ced-4a31-9e61-e3f72437f88e/0096306c040d36aec342830984fef02a" title="" target="_blank">Witchery <span>'Real Dads'</span> (2012)
-                        </a></li>
-                        <li><a href="https://www.evernote.com/shard/s238/sh/d6168a76-762d-4f61-a848-d91386f08fdb/12b21865d8d1e0801a6b41c2a5396d4c"title="" target="_blank">MIMCO <span>'Vote For Store'</span> (2012)</a></li>
-                        <li><a href="https://www.evernote.com/shard/s238/sh/cfdc659c-80b3-41b9-b869-768f1943fe89/7978837befdd9fe5def8ec960c7f3064"title="" target="_blank">Forever New <span>'Secret Sale'</span> (2013)</a></li>
-                    </ul>
-                </div>
-                <div class="column right">
-                    <h3>Away from the code world</h3>
-
-                    <p>When I'm not at a screen I'm either drawing, drumming or cooking.</p>
-                    <iframe width="100%" height="200" src="http://www.youtube.com/embed/_yKXGxF7_MA?rel=0" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-
-
-        </section>
-
-</div>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-41241311-1', 'tomgordon.me');
-    ga('send', 'pageview');
-
-</script>
-</body>
-</html>

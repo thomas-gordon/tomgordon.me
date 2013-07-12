@@ -1,177 +1,331 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
-@import "base";
+@import "../bower_components/normalize-css/normalize.css";
+@import "http://fonts.googleapis.com/css?family=Varela";
 @import "font-awesome";
+@import "syntax";
 
-@mixin color-buttons($color: #f0f0f0, $text-color: #fff) {
-	a {
-		@include background-image(linear-gradient($color, darken($color, 10%)));
-		border-color: darken($color, 5%);
-		color: $text-color;
-		@include text-shadow(0 1px 0 invert($text-color));
+/*****************************************************************************/
+/*
+/* Variables and Simple Mixins.
+/*
+/*****************************************************************************/
+$font-varela: "Varela", Arial, sans-serif;
+$doc-font-size:16;
+$doc-line-height:24;
+$black: #333;
+
+@mixin cf() {
+	*zoom: 1;
+	&:before,
+	&:after {
+		content: " "; /* 1 */
+		display: table; /* 2 */
+	}
+
+	&:after {
+		clear: both;
 	}
 }
-
-html {
-	height: 100%;
+@mixin list-reset() {
+	margin:0;
+	padding:0;
+	list-style:none;
 }
+
+
+// initial variables set-up
+
+
+// mixin
+
+@mixin font-size($size, $keyword: null, $line-height:$doc-line-height) {
+//
+// EXAMPLE -   font-size(16);
+//             font-size(16, medium);
+//             font-size(16, medium, 24);
+//
+// note that the numeric font-size is required to allow the line-height to be generated correctly.
+
+// the addition of the $keyword has been borrowed from this technique - http://seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
+
+	@if $keyword{
+		font-size: $keyword;
+	}
+	@else {
+		font-size: 0px + $size;
+		font-size: $size / $doc-font-size +rem;
+	}
+// because you have to include the font size as a number for the keywor you can still get the line-height
+
+	line-height: (round($line-height / $size*10000) / 10000)+em;
+
+	margin-bottom: 0px + $line-height;
+	margin-bottom: ($line-height / $doc-font-size)+rem ;
+
+	margin-top: 0px + $line-height;
+	margin-top: ($line-height / $doc-font-size)+rem ;
+}
+
+@mixin box-shadow($shadow: 0px 0px 4px 0px #7a7a7a) {
+	-webkit-box-shadow: $shadow; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+	box-shadow: $shadow; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+}
+
+// set-up the body font-size / line-height
 
 body {
-	padding: 0;
-	background: $white;
-	height: 100%;
-	min-height: 100%;
-	margin: 0 auto;
-	padding: 0 2em;
-	max-width:1140px
+
 }
 
-img {
-	max-width: 100%;
-	min-height: 1px;
+
+/*
+http://paulirish.com/2012/box-sizing-border-box-ftw/
+*/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/*****************************************************************************/
+/*
+/* Sitewide
+/*
+/*****************************************************************************/
+
+html {
+	-webkit-font-smoothing: antialiased;
+	margin-top: 0px + $doc-line-height;
+	font-size: 0px + $doc-font-size;
+	margin:0;
+	padding:0;
+
 }
 
-h1 span{
-	@include adjust-font-size-to(10px);
+body{
+	padding:0;
+	color:$black;
+	background:white;
+	min-width:340px;
 }
 
+.container{
+	padding:0 2em;
+	font-family: "Varela", Arial, sans-serif;
+	margin:0 auto;
+	@include cf();
+}
+a{
+	color:darken(#BADEFF,30%);
+}
+
+/*****************************************************************************/
+/*Baseline Grid
+/*
+/*****************************************************************************/
+
+h1 {
+	@include font-size(40, null, 24);
+}
+h2 {
+	@include font-size(24);
+}
 
 h3 {
-	margin: 1em 0;
+	@include font-size(22);
+}
+h4 {
+	@include font-size(20);
+}
+blockquote, h5, h6, iframe, label, p, pre, address, td, th, ul, ol, dl, dd, hr,
+table {
+	@include font-size(16, medium);
+}
+small {
+	@include font-size(14);
 }
 
-.packery, .columns {
-	@include cf();
+h6 {
+	@include font-size(14);
+	margin-bottom: 0;
 }
 
-header {
-	border-bottom: 10px solid #ccc;
-}
+/*****************************************************************************/
+/*
+Header
+/*
+/*****************************************************************************/
 
-.pill-list {
-	@include cf();
-	padding: 0;
-	ul {
+nav{
+	ul{
 		@include cf();
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		margin: 1em 0;
+		@include list-reset();
 	}
-
-}
-
-.column {
-	float: left;
-	width: 32.3333%;
-	margin-right: 1%;
-	margin-bottom:2em;
-	&.right {
-		float: right;
-		margin:0;
+	li{
+		float:left;
 	}
-}
+	a{
+		display:block;
+		margin:0.20em 0;
+		padding:0.5em 1em;
+		color:#fff;
+		border-radius: 4px;
+		text-decoration:none;
+		border:1px solid #fff;
 
 
-
-.pill-list {
-	@include cf();
-	list-style: none;
-	li {
-		float: left;
-		margin: 0 0.25em 0.25em 0;
-		&.plain {
-			line-height: 30px;
-			padding: 0 0.5em;
-			color: #aaa;
-			text-shadow: #fbfbfb;
+		background:darken(#BADEFF, 20%);
+		margin-right:1em;
+		&.current{
+			background:darken(#BADEFF, 30%);
 		}
+	}
+}
+
+/*****************************************************************************/
+/*
+Content
+/*
+/*****************************************************************************/
+
+
+	.container{
+		max-width:960px;
+	}
+
+
+
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
+ul.posts {
+	@include list-reset;
+	&.posts {
+
+		span {
+			color: #000;
+			font-family: Monaco, "Courier New", monospace;
+			font-size: 80%;
+		}
+		.raquo{
+			text-decoration:none;
+			margin:0.122em 0.25em 0 0.25em;
+			background:darken(#BADEFF,30%);
+			border-radius: 1000px;
+			color:#fff;
+			padding:0.1em 0.5em;
+		}
+	}
+}
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
+
+
+
+#site-header {
+	background:#BADEFF;
+	.container{
+
+		padding-bottom:1.40em;
+		border-bottom:0.1em solid #ccc;
+	}
+	a {
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	a.extra {
+		color: #aaa;
+		margin-left: 1em;
+		&:hover {
+			color: #000;
+		}
+	}
+
+	.title{
+		margin-top:0;
+		padding-top:24px;
+		padding-top:1.5rem;
+		margin:0;
+		padding-bottom:24px;
+		padding-bottom:1.5rem;
+		padding-right:1rem;
+
+		display:inline-block;
+		background:#BADEFF;
+
+		a{
+			color:#333;
+			text-decoration:none;
+		}
+		span{
+			@include font-size(16);
+			color:darken(#BADEFF,50%);
+		}
+	}
+
+}
+
+
+
+#site-footer {
+	color: #666;
+
+	overflow: hidden;
+	.contact {
+		float: left;
+		margin-right: 3em;
 		a {
-			color: $black;
-			text-decoration: none;
-			display: block;
-			position: relative;
-			height:38px;
-			width:30px;
-			margin-right:3px;
-			&:hover{
-				strong{
-					display:block;
-				}
+			color: darken(#BADEFF,30%);
+			display:block;
+			i{
+				text-decoration:none;
+				margin:0.122em 0.25em 0 0.25em;
+				background:darken(#BADEFF,30%);
+				border-radius: 1000px;
+				color:#fff;
+				padding:0.1em 0.5em;
 			}
 		}
-		i {
-			padding: 3px;
-			font-size: 20px;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			background: 003672;
-			color: #000;
-			width: 38px;
-			height: 30px;
-			line-height: 16px;
-			text-align: center;
-			border: 3px solid #000;
-			background: #fff;
-			text-shadow: 0 1px 0 #ccc;
-		}
-		strong {
-			display: block;
-			font-size:12px;
-			margin: 0;
-			position:absolute;
-			top:100%;
-			font-weight:normal;
-			left:50%;
-			display:none;
-			width:400px;
-		}
-		span {
-			display: none;
-		}
 	}
 }
 
-.projects {
-	@include cf();
-}
 
-.networks-list{
-	padding: 0;
-	list-style:none;
-	a{
-		span{
-			display:none
+/*****************************************************************************/
+/*
+/* Posts
+/*
+/*****************************************************************************/
+
+/* standard */
+
+.post {
+	pre {
+		border: 1px solid #ddd;
+		background-color: #eef;
+		padding: 0 .4em;
+	}
+
+	code {
+		border: 1px solid #ddd;
+		background-color: #eef;
+		padding: 0 .2em;
+	}
+	pre {
+		code {
+			border: none;
+		}
+		&.terminal {
+			border: 1px solid #000;
+			background-color: #333;
+			color: #FFF;
+			code {
+				background-color: #333;
+			}
 		}
 	}
 }
-
-.project-list {
-	@include cf();
-	list-style: none;
-	padding: 0;
-	li {
-		margin: 0 0.25em 0.25em 0;
-		a {
-			text-decoration: none;
-			display: block;
-			position: relative;
-			padding: 0;
-			display: inline-block;
-			line-height: 30px;
-			padding: 0 8px 0 0;
-			margin: 0;
-			position:relative;
-			border-bottom:4px solid #f1f1f1;
-		}
-
-	}
-}
-
 /*
 MEDIA QUERIES
 */
@@ -209,6 +363,15 @@ MEDIA QUERIES
 // end of media query*/
 
 @media only screen and (min-width: 768px) {
+	.title{
+		display:block;
+	}
+	#site-header{
+		.container{
+			background:url(../img/site-header.gif) 100% 100% no-repeat;
+
+		}
+	}
 
 }
 

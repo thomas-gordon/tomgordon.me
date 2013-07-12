@@ -1,1 +1,0 @@
-(function(){var e=function(){"use strict";function e(){}return e.prototype.init=function(){return console.log("page custom JS running")},e}(),t=new e;t.init()}).call(this);
