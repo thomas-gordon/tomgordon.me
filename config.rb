@@ -10,8 +10,8 @@ fonts_dir = "fonts"
 
 # change to compressed for live ^_^
 
-output_style = :nested
-# output_style = :compressed
+# output_style = :nested
+output_style = :compressed
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true

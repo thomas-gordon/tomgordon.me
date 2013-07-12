@@ -5,7 +5,9 @@ date:   2013-07-12 10:01:19
 categories: musings
 ---
 
-You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
-To add new posts, simply add a file in the `_posts` directory that follows the convention: YYYY-MM-DD-name-of-post.ext.
+I think it's really, really important that coders get time to play. Most of us come from a background of tinkering.
+When I was a kid I took it upon myself to take apart old radios and broken things just to see the insides. I wasn't
+so interested in how it all came together, the screws, the connections, nor did I care about the  rather I marvelled at
+the fact that there existed in the world all these
 
-Jekyll also offers powerful support for code snippets: nap; eefe hehe
+different parts that could come together to form the whole.
