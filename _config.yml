@@ -7,5 +7,4 @@ navigation:
     - text: Blog
       url: /index.html
     - text: Work
-      title: Letters home from abroad
       url: /work.html
