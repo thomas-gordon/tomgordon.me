@@ -2,7 +2,7 @@
 layout: post
 title:  "Adventuring with Jekyll"
 date:   2013-07-12 14:30:00
-categories: frameworks jekyll
+categories: frameworks
 ---
 
 I just set my new site up with jekyll! It's been a while coming, my old site was in vast need of a more dynamic option

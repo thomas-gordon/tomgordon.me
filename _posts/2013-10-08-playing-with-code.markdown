@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Playing with code"
-date:   2013-10-09 18:01:19
+date:   2013-10-08 18:01:19
 categories: musings
 ---
 
