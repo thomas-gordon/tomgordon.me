@@ -2,18 +2,21 @@
 layout: default
 title: Blog
 ---
+<section class="article-list">
+	{% for post in site.posts %}
 
-<h2>Blog</h2>
+		<article>
+			<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+			<time>
+				<span>{{ post.date | date: "%d" }}</span>
+				<span>{{ post.date | date: "%B" }}</span>
+				<span>{{ post.date | date: "%Y" }}</span>
+			</time>
+			{{post.excerpt}}
+		</article>
 
-<ul class="posts">
-    {% for post in site.posts %}
-    <li>
-        <time>
-            <span>{{ post.date | date: "%d" }}</span>
-            <span>{{ post.date | date: "%B" }}</span>
-            <span>{{ post.date | date: "%Y" }}</span>
-        </time>
-        <span class="raquo">&raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
+	{% endfor %}
+</section>
+
+
 

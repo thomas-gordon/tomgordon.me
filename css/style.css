@@ -31,7 +31,7 @@
 
 /*  Font Awesome styles
     ------------------------------------------------------- */
-/* line 43, ../scss/_font-awesome.scss */
+/* line 42, ../scss/_font-awesome.scss */
 [class^="icon-"],
 [class*=" icon-"] {
   font-family: FontAwesome;
@@ -51,7 +51,7 @@
   margin-top: 0; }
 
 /* more sprites.less reset */
-/* line 75, ../scss/_font-awesome.scss */
+/* line 63, ../scss/_font-awesome.scss */
 .icon-white,
 .nav-pills > .active > a > [class^="icon-"],
 .nav-pills > .active > a > [class*=" icon-"],
@@ -67,7 +67,7 @@
 .dropdown-submenu:hover > a > [class*=" icon-"] {
   background-image: none; }
 
-/* line 80, ../scss/_font-awesome.scss */
+/* line 79, ../scss/_font-awesome.scss */
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   text-decoration: inherit;
@@ -75,7 +75,7 @@
   speak: none; }
 
 /* makes sure icons active on rollover in links */
-/* line 89, ../scss/_font-awesome.scss */
+/* line 88, ../scss/_font-awesome.scss */
 a [class^="icon-"],
 a [class*=" icon-"] {
   display: inline-block; }
@@ -86,7 +86,7 @@ a [class*=" icon-"] {
   vertical-align: -10%;
   font-size: 1.3333333333333333em; }
 
-/* line 102, ../scss/_font-awesome.scss */
+/* line 101, ../scss/_font-awesome.scss */
 .btn [class^="icon-"],
 .btn [class*=" icon-"], .nav [class^="icon-"],
 .nav [class*=" icon-"] {
@@ -103,7 +103,7 @@ a [class*=" icon-"] {
   .nav [class*=" icon-"].icon-spin {
     display: inline-block; }
 
-/* line 112, ../scss/_font-awesome.scss */
+/* line 111, ../scss/_font-awesome.scss */
 .nav-tabs [class^="icon-"],
 .nav-tabs [class*=" icon-"], .nav-pills [class^="icon-"],
 .nav-pills [class*=" icon-"] {
@@ -116,7 +116,7 @@ a [class*=" icon-"] {
   .nav-pills [class*=" icon-"].icon-large {
     line-height: .9em; }
 
-/* line 120, ../scss/_font-awesome.scss */
+/* line 119, ../scss/_font-awesome.scss */
 li [class^="icon-"],
 li [class*=" icon-"], .nav li [class^="icon-"],
 .nav li [class*=" icon-"] {
@@ -134,7 +134,7 @@ li [class*=" icon-"], .nav li [class^="icon-"],
 ul.icons {
   list-style-type: none;
   text-indent: -.75em; }
-  /* line 137, ../scss/_font-awesome.scss */
+  /* line 136, ../scss/_font-awesome.scss */
   ul.icons li [class^="icon-"],
   ul.icons li [class*=" icon-"] {
     width: .75em; }
@@ -214,7 +214,7 @@ ul.icons {
 .btn.btn-small [class*=" icon-"].pull-right.icon-2x {
   margin-top: .25em; }
 
-/* line 219, ../scss/_font-awesome.scss */
+/* line 218, ../scss/_font-awesome.scss */
 .btn.btn-large [class^="icon-"],
 .btn.btn-large [class*=" icon-"] {
   margin-top: 0; }
@@ -413,7 +413,7 @@ ul.icons {
 .icon-play-circle:before {
   content: "\f01d"; }
 
-/* line 303, ../scss/_font-awesome.scss */
+/* line 302, ../scss/_font-awesome.scss */
 .icon-repeat:before,
 .icon-rotate-right:before {
   content: "\f01e"; }
@@ -675,7 +675,7 @@ ul.icons {
 .icon-arrow-down:before {
   content: "\f063"; }
 
-/* line 375, ../scss/_font-awesome.scss */
+/* line 374, ../scss/_font-awesome.scss */
 .icon-share-alt:before,
 .icon-mail-forward:before {
   content: "\f064"; }
@@ -1100,7 +1100,7 @@ ul.icons {
 .icon-linkedin:before {
   content: "\f0e1"; }
 
-/* line 490, ../scss/_font-awesome.scss */
+/* line 489, ../scss/_font-awesome.scss */
 .icon-undo:before,
 .icon-rotate-left:before {
   content: "\f0e2"; }
@@ -1281,7 +1281,7 @@ ul.icons {
 .icon-circle:before {
   content: "\f111"; }
 
-/* line 539, ../scss/_font-awesome.scss */
+/* line 538, ../scss/_font-awesome.scss */
 .icon-reply:before,
 .icon-mail-reply:before {
   content: "\f112"; }
@@ -1346,7 +1346,7 @@ ul.icons {
 .icon-mail-reply-all:before {
   content: "\f122"; }
 
-/* line 557, ../scss/_font-awesome.scss */
+/* line 556, ../scss/_font-awesome.scss */
 .icon-star-half-full:before,
 .icon-star-half-empty:before {
   content: "\f123"; }
@@ -1806,7 +1806,7 @@ body {
   font-family: "Varela", Arial, sans-serif;
   margin: 0 auto;
   *zoom: 1; }
-  /* line 19, ../scss/style.scss */
+  /* line 18, ../scss/style.scss */
   .container:before, .container:after {
     content: " ";
     /* 1 */
@@ -1864,7 +1864,7 @@ h4 {
   margin-top: 24px;
   margin-top: 1.5rem; }
 
-/* line 136, ../scss/style.scss */
+/* line 135, ../scss/style.scss */
 blockquote, h5, h6, iframe, label, p, pre, address, td, th, ul, ol, dl, dd, hr,
 table {
   font-size: medium;
@@ -1906,7 +1906,7 @@ nav ul {
   margin: 0;
   padding: 0;
   list-style: none; }
-  /* line 19, ../scss/style.scss */
+  /* line 18, ../scss/style.scss */
   nav ul:before, nav ul:after {
     content: " ";
     /* 1 */
@@ -1951,49 +1951,44 @@ Content
 /* Home
 /*
 /*****************************************************************************/
-/* line 200, ../scss/style.scss */
-ul.posts {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-  /* line 204, ../scss/style.scss */
-  ul.posts.posts span {
-    color: #000;
-    font-family: Monaco, "Courier New", monospace;
-    font-size: 80%; }
-  /* line 209, ../scss/style.scss */
-  ul.posts.posts .raquo {
-    text-decoration: none;
-    margin: 0.122em 0.25em 0 0.25em;
-    background: #2195ff;
-    border-radius: 1000px;
-    color: #fff;
-    padding: 0.1em 0.5em; }
+/* line 206, ../scss/style.scss */
+.article-list h1 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1em;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+  margin-top: 24px;
+  margin-top: 1.5rem; }
+/* line 210, ../scss/style.scss */
+.article-list time {
+  display: block;
+  margin-top: -1em; }
 
 /*****************************************************************************/
 /*
 /* Site
 /*
 /*****************************************************************************/
-/* line 228, ../scss/style.scss */
+/* line 224, ../scss/style.scss */
 #site-header {
   background: #BADEFF; }
-  /* line 230, ../scss/style.scss */
+  /* line 226, ../scss/style.scss */
   #site-header .container {
     padding-bottom: 1.40em;
     border-bottom: 0.1em solid #ccc; }
-  /* line 235, ../scss/style.scss */
+  /* line 231, ../scss/style.scss */
   #site-header a {
     font-weight: bold;
     text-decoration: none; }
-  /* line 240, ../scss/style.scss */
+  /* line 236, ../scss/style.scss */
   #site-header a.extra {
     color: #aaa;
     margin-left: 1em; }
-    /* line 243, ../scss/style.scss */
+    /* line 239, ../scss/style.scss */
     #site-header a.extra:hover {
       color: #000; }
-  /* line 248, ../scss/style.scss */
+  /* line 244, ../scss/style.scss */
   #site-header .title {
     margin-top: 0;
     padding-top: 24px;
@@ -2004,11 +1999,11 @@ ul.posts {
     padding-right: 1rem;
     display: inline-block;
     background: #BADEFF; }
-    /* line 260, ../scss/style.scss */
+    /* line 256, ../scss/style.scss */
     #site-header .title a {
       color: #333;
       text-decoration: none; }
-    /* line 264, ../scss/style.scss */
+    /* line 260, ../scss/style.scss */
     #site-header .title span {
       font-size: 16px;
       font-size: 1rem;
@@ -2019,25 +2014,25 @@ ul.posts {
       margin-top: 1.5rem;
       color: #0061ba; }
 
-/* line 274, ../scss/style.scss */
+/* line 270, ../scss/style.scss */
 #site-footer {
   color: #666;
   overflow: hidden;
   padding-top: 1.4em;
   border-top: 0.1em solid #ccc; }
-  /* line 280, ../scss/style.scss */
+  /* line 276, ../scss/style.scss */
   #site-footer .contact {
     float: left;
     margin-right: 3em;
     margin: 0 3em 1.5em 0; }
-    /* line 284, ../scss/style.scss */
+    /* line 280, ../scss/style.scss */
     #site-footer .contact p {
       margin: 0; }
-    /* line 285, ../scss/style.scss */
+    /* line 281, ../scss/style.scss */
     #site-footer .contact a {
       color: #2195ff;
       display: block; }
-      /* line 288, ../scss/style.scss */
+      /* line 284, ../scss/style.scss */
       #site-footer .contact a i {
         text-decoration: none;
         margin: 0.122em 0.25em 0 0.25em;
@@ -2052,25 +2047,25 @@ ul.posts {
 /*
 /*****************************************************************************/
 /* standard */
-/* line 310, ../scss/style.scss */
+/* line 306, ../scss/style.scss */
 .post pre {
   border: 1px solid #ddd;
   background-color: #eef;
   padding: 0 .4em; }
-/* line 316, ../scss/style.scss */
+/* line 312, ../scss/style.scss */
 .post code {
   border: 1px solid #ddd;
   background-color: #eef;
   padding: 0 .2em; }
-/* line 322, ../scss/style.scss */
+/* line 318, ../scss/style.scss */
 .post pre code {
   border: none; }
-/* line 325, ../scss/style.scss */
+/* line 321, ../scss/style.scss */
 .post pre.terminal {
   border: 1px solid #000;
   background-color: #333;
   color: #FFF; }
-  /* line 329, ../scss/style.scss */
+  /* line 325, ../scss/style.scss */
   .post pre.terminal code {
     background-color: #333; }
 
@@ -2078,11 +2073,11 @@ ul.posts {
 MEDIA QUERIES
 */
 @media only screen and (max-width: 481px) {
-  /* line 340, ../scss/style.scss */
+  /* line 336, ../scss/style.scss */
   .tile {
     width: 100%;
     margin: 0 0 0.25em 0; }
-    /* line 343, ../scss/style.scss */
+    /* line 339, ../scss/style.scss */
     .tile.plain {
       color: #000;
       text-transform: uppercase;
@@ -2090,24 +2085,24 @@ MEDIA QUERIES
       padding-left: 0;
       margin-top: -0.25em; }
 
-  /* line 353, ../scss/style.scss */
+  /* line 348, ../scss/style.scss */
   .left, .right,
   .column {
     margin-right: 0;
     width: 100%;
     float: none; }
 
-  /* line 360, ../scss/style.scss */
+  /* line 356, ../scss/style.scss */
   .columns .left, .columns .right {
     margin-right: 0;
     width: 100%;
     float: none; } }
 @media only screen and (min-width: 768px) {
-  /* line 372, ../scss/style.scss */
+  /* line 368, ../scss/style.scss */
   .title {
     display: block; }
 
-  /* line 376, ../scss/style.scss */
+  /* line 372, ../scss/style.scss */
   #site-header .container {
     background: url(../img/site-header.gif) 100% 100% no-repeat; } }
 /*RETINA (2x RESOLUTION DEVICES)
@@ -2119,7 +2114,7 @@ query for retina AND a certain size if you want. Go Nuts.
 PRINT STYLESHEET
 */
 @media print {
-  /* line 410, ../scss/style.scss */
+  /* line 406, ../scss/style.scss */
   * {
     background: transparent !important;
     color: black !important;
@@ -2127,57 +2122,59 @@ PRINT STYLESHEET
     filter: none !important;
     -ms-filter: none !important; }
 
-  /* line 418, ../scss/style.scss */
+  /* line 414, ../scss/style.scss */
   a, a:visited {
     color: #444 !important;
     text-decoration: underline; }
-    /* line 423, ../scss/style.scss */
+    /* line 419, ../scss/style.scss */
     a:after, a:visited:after {
       content: " (" attr(href) ")"; }
-    /* line 428, ../scss/style.scss */
+    /* line 424, ../scss/style.scss */
     a abbr[title]:after, a:visited abbr[title]:after {
       content: " (" attr(title) ")"; }
 
-  /* line 435, ../scss/style.scss */
+  /* line 429, ../scss/style.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: ""; }
 
-  /* line 439, ../scss/style.scss */
+  /* line 435, ../scss/style.scss */
   pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
 
-  /* line 444, ../scss/style.scss */
+  /* line 440, ../scss/style.scss */
   thead {
     display: table-header-group; }
 
-  /* line 448, ../scss/style.scss */
+  /* line 444, ../scss/style.scss */
   tr, img {
     page-break-inside: avoid; }
 
-  /* line 452, ../scss/style.scss */
+  /* line 448, ../scss/style.scss */
   img {
     max-width: 100% !important; }
 
   @page {
     margin: 0.5cm; }
 
-  /* line 460, ../scss/style.scss */
+  /* line 456, ../scss/style.scss */
   p, h2, h3 {
     orphans: 3;
     widows: 3; }
 
-  /* line 466, ../scss/style.scss */
+  /* line 461, ../scss/style.scss */
   h2,
   h3 {
     page-break-after: avoid; }
 
-  /* line 475, ../scss/style.scss */
+  /* line 467, ../scss/style.scss */
   .sidebar,
   .page-navigation,
   .wp-prev-next,
   .respond-form,
   nav {
     display: none; } }
+
+/*@ sourceMappingURL=style.css.map */

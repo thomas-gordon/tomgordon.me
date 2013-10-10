@@ -6,8 +6,9 @@ categories: musings
 ---
 
 I think a lot of us coders come from a background of tinkering with things outside the computing world. When I was a
-teenager I took it upon myself to take apart old radios and broken things just to see the insides. The time I spent in this world
-was clear, uncluttered by all the nonsense that accompanies adolescence. I think it was this tinkering bubble that lead me
+teenager I took it upon myself to take apart old radios and broken things just to see the insides.
+
+The time I spent in this world was clear, uncluttered by all the nonsense that accompanies adolescence. I think it was this tinkering bubble that lead me
 to want to understand the web and the technology behind it. It also interested me more than conventional engineering because
 it was still being developed; I had the real chance to contribute to the creation of web engineering itself.
 

@@ -187,7 +187,7 @@ Content
 }
 
 	.container{
-		max-width:960px;
+		max-width:960px
 	}
 
 
@@ -197,23 +197,19 @@ Content
 /* Home
 /*
 /*****************************************************************************/
-ul.posts {
-	@include list-reset;
-	&.posts {
+.article-list{
 
-		span {
-			color: #000;
-			font-family: Monaco, "Courier New", monospace;
-			font-size: 80%;
-		}
-		.raquo{
-			text-decoration:none;
-			margin:0.122em 0.25em 0 0.25em;
-			background:darken(#BADEFF,30%);
-			border-radius: 1000px;
-			color:#fff;
-			padding:0.1em 0.5em;
-		}
+	article{
+
+	}
+
+	h1{
+		@include font-size(24);
+	}
+
+	time{
+		display: block;
+		margin-top: -1em;
 	}
 }
 
