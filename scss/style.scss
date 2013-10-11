@@ -120,7 +120,8 @@ a{
 /*****************************************************************************/
 
 h1 {
-	@include font-size(40, null, 24);
+	@include font-size(40, null, 48);
+	margin:1.5rem 0;
 }
 h2 {
 	@include font-size(24);
@@ -155,6 +156,7 @@ nav{
 	ul{
 		@include cf();
 		@include list-reset();
+		font-size:14px;
 	}
 	li{
 		float:left;
@@ -167,12 +169,23 @@ nav{
 		border-radius: 4px;
 		text-decoration:none;
 		border:1px solid #fff;
-
-
 		background:darken(#BADEFF, 20%);
 		margin-right:1em;
 		&.current{
-			background:darken(#BADEFF, 30%);
+			background:darken(#BADEFF, 40%);
+			position:relative;
+			&:after{
+				position:absolute;
+				top: 35px;
+				left: 50%;
+				content: " ";
+				border-right: 10px solid transparent;
+				border-left: 10px solid transparent;
+				border-top: 10px solid #fff;
+				width: 0;
+				height: 0;
+				margin-left: -10px;
+			}
 		}
 	}
 }
@@ -207,10 +220,6 @@ Content
 		@include font-size(24);
 	}
 
-	time{
-		display: block;
-		margin-top: -1em;
-	}
 }
 
 /*****************************************************************************/
@@ -224,9 +233,8 @@ Content
 #site-header {
 	background:#BADEFF;
 	.container{
-
 		padding-bottom:1.40em;
-		border-bottom:0.1em solid #ccc;
+		border-bottom:0.1em solid darken(#BADEFF, 40%);
 	}
 	a {
 		font-weight: bold;
@@ -252,7 +260,7 @@ Content
 
 		display:inline-block;
 		background:#BADEFF;
-
+		line-height:0.75em;
 		a{
 			color:#333;
 			text-decoration:none;
@@ -283,7 +291,7 @@ Content
 			display:block;
 			i{
 				text-decoration:none;
-				margin:0.122em 0.25em 0 0.25em;
+				margin:0.122em 0.25em 0 0;
 				background:darken(#BADEFF,30%);
 				border-radius: 1000px;
 				color:#fff;
@@ -328,6 +336,13 @@ Content
 		}
 	}
 }
+
+time{
+	display: block;
+	margin-top: -1em;
+}
+
+
 /*
 MEDIA QUERIES
 */

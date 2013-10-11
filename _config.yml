@@ -8,3 +8,5 @@ navigation:
       url: /index.html
     - text: Work
       url: /work.html
+    - text: Twitter
+      url: http://www.twitter.com/tomgwebdev
