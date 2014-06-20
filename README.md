@@ -1,4 +1,6 @@
 tomgordon.me
 ============
 
-My personal website repo.
+
+
+My personal website repo, based off jekyll.
