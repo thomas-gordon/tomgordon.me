@@ -1,0 +1,24 @@
+{
+  "name": "TomGordon.Me",
+  "preferGlobal": false,
+  "repository": "git@github.com:thomas-gordon/tomgordon.me.git",
+  "version": "1.0.0",
+  "dependencies": {
+    "grunt": "*"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bower-install-simple": "*",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-sass": "0.12.1",
+    "grunt-usemin": "*",
+    "node-bourbon": "*"
+  },
+  "engines": {
+    "node": ">=0.6"
+  }
+}
