@@ -1,12 +1,29 @@
-title: Tom Gordon - Frontend Developer in Melbourne, Australia
+title: Tom Gordon - frontend web developer in Melbourne, Australia
 name: Tom Gordon
+role: frontend web development
 highlighter: true
-subname: Web developer
+subname: Frontend web developer
 permalink: /:categories/:day/:month/:year/:title.html
 navigation:
-    - text: Blog
-      url: /index.html
-    - text: Work
-      url: /work.html
-    - text: Twitter
+    - text: email me
+      url: #
+      icon: envelope
+      class: js-transform-email
+    - text: linked in
+      url: http://www.linkedin.com/profile/view?id=46634189&trk=tab_pro
+      icon: linkedin
+    - text: github
+      url: http://github.com/thomas-gordon
+      icon: github
+    - text: twitter
       url: http://www.twitter.com/tomgwebdev
+      icon: twitter
+    - text: resume
+      url: https://docs.google.com/document/d/1Rw7b9PkSPXlfwEWWLziUkVCC5CsWF0Pmbv1R0jZssf8/
+      icon: book
+    - text: medium
+      url: https://medium.com/@tomgwebdev
+      icon: pencil
+
+
+

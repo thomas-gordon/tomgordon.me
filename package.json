@@ -14,6 +14,7 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
+    "grunt-ender": "^0.2.1",
     "grunt-jekyll": "^0.4.2",
     "grunt-sass": "0.12.1",
     "grunt-usemin": "*",

@@ -4,7 +4,8 @@ title:  "Switching Gears"
 categories: musings the-job
 ---
 
-In the last year I've had three different full-time jobs. While that might sound unstable, I can assure you it's the result of one simple thing; that I've started to put myself first. 
+In the last year I've had three different full-time jobs. While that might sound unstable, I can assure you it's the 
+result of one simple thing; that I've started to put myself first. 
 
 How I allocate my time has become powerfully important to me. The lustre of the 'early-relationship' stage of my front-end career has calmed, allowing me to realise that if you're working on the web and have the capacity to do so, you should approach the web from a 'giving back' perspective. It's really important. you should be working on projects that have a broader reach than the corporate space. By corporate space I mean working on projects that have some (or all) of the following results:
 

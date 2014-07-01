@@ -78,6 +78,13 @@ module.exports = function (grunt) {
 			}
 		},
 
+		ender: {
+			options: {
+				output: "js/ender/ender",
+				dependencies: ["domReady", "bean", "bonzo", "qwery"]
+			}
+		},
+
 		//* =============================================
 		//Section: WATCH
 		//================================================ */
@@ -95,7 +102,7 @@ module.exports = function (grunt) {
 					'_config.yml',
 					'index.html'
 				],
-				tasks: ['_jekyll']
+				tasks: ['sass:_develop','_jekyll']
 			},
 			sass: {
 				options: {
@@ -111,7 +118,8 @@ module.exports = function (grunt) {
 				tasks: []
 			},
 			coffee: {
-				files: ['./coffee/*.coffee']
+				files: ['./coffee/*.coffee'],
+				tasks: ['_coffee']
 			}
 		},
 
@@ -132,9 +140,12 @@ module.exports = function (grunt) {
 		},
 
 		coffee: {
+			options: {
+				bare: true
+			},
 			compile: {
 				files: {
-					'js/frontend-scripts.js': 'coffee/frontend-scripts.coffee' // 1:1 compile
+					'./_site/js/frontend-scripts.js': 'coffee/frontend-scripts.coffee' // 1:1 compile
 				}
 			}
 		}
@@ -162,6 +173,11 @@ module.exports = function (grunt) {
 		grunt.task.run('sass:develop');
 	});
 
+	grunt.registerTask('sass:_production', [], function () {
+		grunt.loadNpmTasks('grunt-sass');
+		grunt.task.run('sass:production');
+	});
+
 	grunt.registerTask('_coffee', [], function () {
 		grunt.loadNpmTasks('grunt-contrib-coffee');
 		grunt.task.run('coffee');
@@ -169,10 +185,7 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-coffee');
 
-	grunt.registerTask('sass:_production', [], function () {
-		grunt.loadNpmTasks('grunt-sass');
-		grunt.task.run('sass:production');
-	});
+
 
 	grunt.registerTask('bower:_install', [], function () {
 		grunt.loadNpmTasks('grunt-bower-install-simple');
@@ -188,9 +201,15 @@ module.exports = function (grunt) {
 		grunt.loadNpmTasks('grunt-contrib-connect');
 		grunt.task.run('connect');
 	});
+
 	grunt.registerTask('_jekyll', [], function () {
 		grunt.loadNpmTasks('grunt-jekyll');
 		grunt.task.run('jekyll');
+	});
+
+	grunt.registerTask('_ender', [], function () {
+		grunt.loadNpmTasks('grunt-ender');
+		grunt.task.run('ender');
 	});
 
 	grunt.event.on('watch', function (action, filepath) {
@@ -210,7 +229,16 @@ module.exports = function (grunt) {
 	 * */
 	grunt.registerTask('default', [], function () {
 		grunt.loadNpmTasks('grunt-contrib-watch');
-		grunt.task.run('bower:_install', 'sass:_develop', '_coffee','message:welcome', '_jekyll','_connect','watch');
+		grunt.task.run(
+			'bower:_install',
+			'_ender',
+			'_coffee',
+			'message:welcome',
+			'_jekyll',
+			'_connect',
+			'sass:_develop',
+			'watch'
+		);
 	});
 
 	/*
@@ -220,7 +248,14 @@ module.exports = function (grunt) {
 		grunt.loadNpmTasks('grunt-usemin');
 		grunt.loadNpmTasks('grunt-contrib-concat');
 		grunt.loadNpmTasks('grunt-contrib-uglify');
-		grunt.task.run('bower:_install', 'sass:_production', '_coffee','_jekyll', 'message:build_done');
+		grunt.task.run(
+			'bower:_install',
+			'_ender:build',
+			'sass:_production',
+			'_coffee',
+			'_jekyll',
+			'message:build_done'
+		);
 	});
 
 

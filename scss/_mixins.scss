@@ -1,0 +1,54 @@
+@mixin cf() {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin list-reset() {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// initial variables set-up
+
+// mixin
+
+@mixin font-size($size, $keyword: null, $line-height: $doc-line-height) {
+    //
+    // EXAMPLE -   font-size(16);
+    //             font-size(16, medium);
+    //             font-size(16, medium, 24);
+    //
+    // note that the numeric font-size is required to allow the line-height to be generated correctly.
+
+    // the addition of the $keyword has been borrowed from this technique - http://seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
+
+    @if $keyword {
+        font-size: $keyword;
+    } @else {
+        font-size: 0px + $size;
+        font-size: $size / $doc-font-size +rem;
+    }
+    // because you have to include the font size as a number for the keywor you can still get the line-height
+
+    line-height: (round($line-height / $size*10000) / 10000)+em;
+
+    margin-bottom: 0px + $line-height;
+    margin-bottom: ($line-height / $doc-font-size)+rem;
+
+    margin-top: 0px + $line-height;
+    margin-top: ($line-height / $doc-font-size)+rem;
+}
+
+@mixin box-shadow($shadow: 0px 0px 4px 0px #7a7a7a) {
+    -webkit-box-shadow: $shadow; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+    box-shadow: $shadow; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+}

@@ -11,20 +11,19 @@
    </head>
 <body>
 
-    <header id="site-header">
+    <header class="site-header">
         <div class="container">
-            <h1 class="title"><a href="/">{{ site.name }} <span>{{ site.subname }}</span></a></h1>
+            <h1 class="site-title">Hello, my name is <a href="/">{{ site.name }}</a> and I develop internet.</h1>
 
-            <nav>
-                <ul>
+            <nav class="site-navigation">
+                <ul class="site-navigation__list">
                 {% for link in site.navigation %}
                     {% assign current = nil %}
                     {% if page.url == link.url or page.layout == link.layout %}
                         {% assign current = 'current' %}
                     {% endif %}
-
-                    <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
-                        <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
+                    <li class="site-navigation__item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+                        <a class="site-navigation__link {{ current }} {{link.class}}" href="{{ link.url }}"><i class="icon-{{link.icon}}"></i>{{ link.text }}</a>
                     </li>
                 {% endfor %}
                 </ul>
@@ -38,43 +37,17 @@
         </div>
     </section>
 
-    <footer id="site-footer">
-        <div class="container">
-            <div class="contact">
-                <p>
-                    Tom Gordon<br/>
-                    Web Developer in Melbourne<br/>
-                    hi <strong>at</strong> tomgordon.me
-                </p>
-            </div>
-            <div class="contact">
-                <p>
-                    <a href="http://github.com/thomas-gordon/"><i
-                            class="icon-github"></i>github.com/thomas-gordon/</a>
 
-                    <a href="http://twitter.com/tomgwebdev/"><i
-                            class="icon-twitter"></i>twitter.com/tomgwebdev</a>
-
-
-                    <a href="https://docs.google.com/document/d/1Rw7b9PkSPXlfwEWWLziUkVCC5CsWF0Pmbv1R0jZssf8/"><i class="icon-book"></i>google docs resume</a>
-
-                    <a href="http://www.linkedin.com/profile/view?id=46634189&trk=tab_pro"
-                       target="_blank"><i class="icon-linkedin"></i>linkedIn profile</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
+    <script type="text/javascript">
 	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 	    ga('create', 'UA-41241311-1', 'tomgordon.me');
 	    ga('send', 'pageview');
-
 	</script>
+	<script type="text/javascript" src="js/ender/ender.min.js"></script>
+	<script type="text/javascript" src="js/frontend-scripts.js"></script>
 
 </body>
 </html>
