@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 					sourceMap: './css/style.css.map'
 				},
 				files: {
-					'./css/style.css': './scss/style.scss'
+					'./_site/css/style.css': './scss/style.scss'
 				}
 			},
 			production: {
@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 					outputStyle: 'compressed'
 				},
 				files: {
-					'./css/styles.css': './scss/styles.scss'
+					'./css/style.css': './scss/style.scss'
 				}
 			}
 		},
@@ -64,24 +64,50 @@ module.exports = function (grunt) {
 			}
 		},
 
+		connect: {
+			options: {
+				livereload:4000,
+				base: '_site/'
+			},
+			uses_defaults: {}
+		},
+
+		jekyll: {
+			dev: {
+				drafts: './drafts'
+			}
+		},
+
 		//* =============================================
 		//Section: WATCH
 		//================================================ */
 		watch: {
 			options: {
-				livereload: true
+				livereload: 4000
+			},
+			jekyll: {
+				files: [
+					'!**/node_modules/**',
+					'./*.html',
+					'./_drafts/*',
+					'./_layouts/*',
+					'404.html',
+					'_config.yml',
+					'index.html'
+				],
+				tasks: ['_jekyll']
 			},
 			sass: {
 				options: {
 					livereload: false
 				},
 				files: [
-					'./design/scss/**/*.scss'
+					'./scss/**/*.scss'
 				],
 				tasks: ['sass:_develop']
 			},
-			grunt: {
-				files: ['./css/styles.css'],
+			css: {
+				files: ['./_site/css/style.css'],
 				tasks: []
 			},
 			coffee: {
@@ -158,6 +184,15 @@ module.exports = function (grunt) {
 		grunt.task.run('jshint');
 	});
 
+	grunt.registerTask('_connect', [], function () {
+		grunt.loadNpmTasks('grunt-contrib-connect');
+		grunt.task.run('connect');
+	});
+	grunt.registerTask('_jekyll', [], function () {
+		grunt.loadNpmTasks('grunt-jekyll');
+		grunt.task.run('jekyll');
+	});
+
 	grunt.event.on('watch', function (action, filepath) {
 		grunt.log.writeln([action]);
 		grunt.log.writeln([filepath]);
@@ -175,7 +210,7 @@ module.exports = function (grunt) {
 	 * */
 	grunt.registerTask('default', [], function () {
 		grunt.loadNpmTasks('grunt-contrib-watch');
-		grunt.task.run('bower:_install', 'sass:_develop', '_coffee','message:welcome', 'watch');
+		grunt.task.run('bower:_install', 'sass:_develop', '_coffee','message:welcome', '_jekyll','_connect','watch');
 	});
 
 	/*
@@ -185,7 +220,7 @@ module.exports = function (grunt) {
 		grunt.loadNpmTasks('grunt-usemin');
 		grunt.loadNpmTasks('grunt-contrib-concat');
 		grunt.loadNpmTasks('grunt-contrib-uglify');
-		grunt.task.run('bower:_install', 'sass:_production', '_coffee', 'message:build_done');
+		grunt.task.run('bower:_install', 'sass:_production', '_coffee','_jekyll', 'message:build_done');
 	});
 
 
