@@ -1,4 +1,3 @@
-tomgordon.me
-============
+##next up..?
 
-My personal website repo, based off jekyll.
+https://sculpin.io/
