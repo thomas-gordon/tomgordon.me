@@ -1,5 +1,10 @@
 module.exports = function (grunt) {
 
+	require('jit-grunt')(grunt, {
+		bower: 'grunt-bower-install-simple',
+        sftp: 'grunt-ssh'
+	});
+
 	grunt.initConfig({
 
 		pkg: grunt.file.readJSON('package.json'),
@@ -7,13 +12,12 @@ module.exports = function (grunt) {
 		sass: {
 			develop: {
 				options: {
-					includePaths: require('node-bourbon').includePaths,
 					outputStyle: 'expanded',
 					sourceComments: 'map',
 					sourceMap: './css/style.css.map'
 				},
 				files: {
-					'./_site/css/style.css': './scss/style.scss'
+					'./css/style.css': './scss/style.scss'
 				}
 			},
 			production: {
@@ -26,6 +30,25 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+
+        secret: grunt.file.readJSON('secret.json'),
+
+        sftp: {
+            test: {
+                files: {
+                    "./": "_site/**"
+                },
+                options: {
+                    path:'<%= secret.path %>',
+                    host: '<%= secret.host %>',
+                    username: '<%= secret.username %>',
+                    password: '<%= secret.password %>',
+                    port: '<%= secret.port %>',
+                    srcBasePath: '_site/',
+                    showProgress: true
+                }
+            }
+        },
 
 		"bower-install-simple": {
 			options: {
@@ -73,8 +96,18 @@ module.exports = function (grunt) {
 		},
 
 		jekyll: {
+			server: {
+				options: {
+					serve:true,
+		            port : 8000,
+		            watch:false
+				},
+			},
 			dev: {
-				drafts: './drafts'
+				options: {
+					drafts: './_drafts',
+					dest: './_site'
+				}
 			}
 		},
 
@@ -90,11 +123,10 @@ module.exports = function (grunt) {
 		//================================================ */
 		watch: {
 			options: {
-				livereload: 4000
+				livereload: true
 			},
 			jekyll: {
 				files: [
-					'!**/node_modules/**',
 					'./*.html',
 					'./_drafts/*',
 					'./_layouts/*',
@@ -102,7 +134,7 @@ module.exports = function (grunt) {
 					'_config.yml',
 					'index.html'
 				],
-				tasks: ['sass:_develop','_jekyll']
+				tasks: ['jekyll:dev']
 			},
 			sass: {
 				options: {
@@ -111,7 +143,7 @@ module.exports = function (grunt) {
 				files: [
 					'./scss/**/*.scss'
 				],
-				tasks: ['sass:_develop']
+				tasks: ['sass:develop']
 			},
 			css: {
 				files: ['./_site/css/style.css'],
@@ -119,7 +151,7 @@ module.exports = function (grunt) {
 			},
 			coffee: {
 				files: ['./coffee/*.coffee'],
-				tasks: ['_coffee']
+				tasks: ['coffee']
 			}
 		},
 
@@ -148,7 +180,13 @@ module.exports = function (grunt) {
 					'./_site/js/frontend-scripts.js': 'coffee/frontend-scripts.coffee' // 1:1 compile
 				}
 			}
-		}
+		},
+		concurrent: {
+	        target: ['jekyll:server', 'watch'],
+	        options: {
+                logConcurrentOutput: true
+            }
+	    }
 
 	});
 
@@ -166,50 +204,6 @@ module.exports = function (grunt) {
 			'Your theme has now been built for production!\n'['green'].bold +
 			'*************'['green'].bold
 		]);
-	});
-
-	grunt.registerTask('sass:_develop', [], function () {
-		grunt.loadNpmTasks('grunt-sass');
-		grunt.task.run('sass:develop');
-	});
-
-	grunt.registerTask('sass:_production', [], function () {
-		grunt.loadNpmTasks('grunt-sass');
-		grunt.task.run('sass:production');
-	});
-
-	grunt.registerTask('_coffee', [], function () {
-		grunt.loadNpmTasks('grunt-contrib-coffee');
-		grunt.task.run('coffee');
-	});
-
-	grunt.loadNpmTasks('grunt-contrib-coffee');
-
-
-
-	grunt.registerTask('bower:_install', [], function () {
-		grunt.loadNpmTasks('grunt-bower-install-simple');
-		grunt.task.run('bower-install-simple');
-	});
-
-	grunt.registerTask('lint', [], function () {
-		grunt.loadNpmTasks('grunt-contrib-jshint');
-		grunt.task.run('jshint');
-	});
-
-	grunt.registerTask('_connect', [], function () {
-		grunt.loadNpmTasks('grunt-contrib-connect');
-		grunt.task.run('connect');
-	});
-
-	grunt.registerTask('_jekyll', [], function () {
-		grunt.loadNpmTasks('grunt-jekyll');
-		grunt.task.run('jekyll');
-	});
-
-	grunt.registerTask('_ender', [], function () {
-		grunt.loadNpmTasks('grunt-ender');
-		grunt.task.run('ender');
 	});
 
 	grunt.event.on('watch', function (action, filepath) {
@@ -230,14 +224,12 @@ module.exports = function (grunt) {
 	grunt.registerTask('default', [], function () {
 		grunt.loadNpmTasks('grunt-contrib-watch');
 		grunt.task.run(
-			'bower:_install',
-			'_ender',
-			'_coffee',
+			'bower-install-simple',
+			'ender',
+			'coffee',
 			'message:welcome',
-			'_jekyll',
-			'_connect',
-			'sass:_develop',
-			'watch'
+			'sass:develop',
+			'concurrent'
 		);
 	});
 
@@ -249,14 +241,13 @@ module.exports = function (grunt) {
 		grunt.loadNpmTasks('grunt-contrib-concat');
 		grunt.loadNpmTasks('grunt-contrib-uglify');
 		grunt.task.run(
-			'bower:_install',
-			'_ender:build',
-			'sass:_production',
-			'_coffee',
-			'_jekyll',
-			'message:build_done'
+			'bower-install-simple',
+			'ender:build',
+			'sass:production',
+			'coffee',
+			'jekyll:dev',
+			'message:build_done',
+			'sftp-deploy'
 		);
 	});
-
-
 };

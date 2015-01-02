@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{{ site.title }}</title>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!-- syntax highlighting CSS -->
 	<link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/style.css">
@@ -13,7 +13,10 @@
 
     <header class="site-header">
         <div class="container">
-            <h1 class="site-title">Hello, my name is <a href="/">{{ site.name }}</a> and I develop internet.</h1>
+            <p><img src="/img/tomgordon.jpg" class="img-responsive img__rounded" alt="Tom Gordon"></p>
+
+            <h1 class="site-title">Hi, I'm {{ site.name }}. I develop the internet to make the world a nicer place at <a href="http://www.squareweave.com.au">Squareweave</a>.</h1>
+            <p>...and I have trails all over the webs. Give me a buzz!</p>
 
             <nav class="site-navigation">
                 <ul class="site-navigation__list">
@@ -46,8 +49,7 @@
 	    ga('create', 'UA-41241311-1', 'tomgordon.me');
 	    ga('send', 'pageview');
 	</script>
-	<script type="text/javascript" src="js/ender/ender.min.js"></script>
-	<script type="text/javascript" src="js/frontend-scripts.js"></script>
+	<!--<script type="text/javascript" src="js/ender/ender.min.js"></script>-->
 
 </body>
 </html>

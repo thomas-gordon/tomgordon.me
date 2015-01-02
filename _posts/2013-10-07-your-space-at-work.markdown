@@ -6,7 +6,7 @@ categories: musings development
 ---
 
 If you see a tradie wearing overalls on the job, odds are they're branded Hard Yakka. This isn't just because the brand
-is fashionable, it's because it represents something tradies want; lasting quality.
+is fashionable, it's because it represents something tradies want; lasting quality. 
 
 If you talk to an athelete they will be able to go into great detail about the swim wear they use every day in the pool.
 If you watch a top-tier chef at work they are not carrying around a knife that they picked up at Coles. It'll be some carefully

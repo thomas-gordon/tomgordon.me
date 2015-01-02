@@ -6,7 +6,7 @@ subname: Frontend web developer
 permalink: /:categories/:day/:month/:year/:title.html
 navigation:
     - text: email me
-      url: #
+      url: mailto:thomasgordon02@gmail.com
       icon: envelope
       class: js-transform-email
     - text: linked in
@@ -24,6 +24,6 @@ navigation:
     - text: medium
       url: https://medium.com/@tomgwebdev
       icon: pencil
-
+exclude: ['bower_components', 'node_modules', 'coffee', 'scss']
 
 
