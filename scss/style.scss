@@ -477,7 +477,7 @@ h3 {
 }
 
 h4 {
-    @include font-size(20);
+    @include font-size(18);
 }
 
 blockquote, h5, h6, iframe, label, p, pre, address, td, th, ul, ol, dl, dd, hr,
@@ -561,7 +561,39 @@ Content
 }
 .img__rounded{
     border-radius:4px;
+    max-width:120px;
 }
+.site-avatar{
+    position:relative;
+    min-width:320px;
+}
+.site-avatar__teaching{
+    position:absolute;
+    left:130px;
+    top:0;
+    display:block;
+    max-width:200px;
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #f0f0f0);
+  background-image:         linear-gradient(to bottom, #ffffff, #f0f0f0);
+
+    border: 1px solid #ccc;
+    padding:10px;
+    border-radius:4px;
+    &:after{
+        bottom:10px;
+        left:-10px;
+        display:block;
+        content: " ";
+        border-top:10px solid transparent;
+        border-bottom:10px solid transparent;
+        border-right:10px solid #ccc;
+        position:absolute;
+    }
+
+}
+
+
 
 /*****************************************************************************/
 /*

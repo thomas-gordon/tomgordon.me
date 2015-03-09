@@ -101,7 +101,7 @@ module.exports = function (grunt) {
 					serve:true,
 		            port : 8000,
 		            watch:false
-				},
+				}
 			},
 			dev: {
 				options: {
@@ -247,7 +247,7 @@ module.exports = function (grunt) {
 			'coffee',
 			'jekyll:dev',
 			'message:build_done',
-			'sftp-deploy'
+			'sftp'
 		);
 	});
 };
