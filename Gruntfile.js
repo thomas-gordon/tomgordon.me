@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 			}
 		},
 
-        secret: grunt.file.readJSON('secret.json'),
+        //secret: grunt.file.readJSON('secret.json'),
 
         sftp: {
             test: {
@@ -99,7 +99,7 @@ module.exports = function (grunt) {
 			server: {
 				options: {
 					serve:true,
-		            port : 8000,
+		            port : 9050,
 		            watch:false
 				}
 			},
@@ -111,19 +111,12 @@ module.exports = function (grunt) {
 			}
 		},
 
-		ender: {
-			options: {
-				output: "js/ender/ender",
-				dependencies: ["domReady", "bean", "bonzo", "qwery"]
-			}
-		},
-
 		//* =============================================
 		//Section: WATCH
 		//================================================ */
 		watch: {
 			options: {
-				livereload: true
+				livereload: 10330
 			},
 			jekyll: {
 				files: [
@@ -148,10 +141,6 @@ module.exports = function (grunt) {
 			css: {
 				files: ['./_site/css/style.css'],
 				tasks: []
-			},
-			coffee: {
-				files: ['./coffee/*.coffee'],
-				tasks: ['coffee']
 			}
 		},
 
@@ -171,16 +160,6 @@ module.exports = function (grunt) {
 			defaults: ['design/scripts/**/*.js', '!design/scripts/site-compiled.js' ]
 		},
 
-		coffee: {
-			options: {
-				bare: true
-			},
-			compile: {
-				files: {
-					'./_site/js/frontend-scripts.js': 'coffee/frontend-scripts.coffee' // 1:1 compile
-				}
-			}
-		},
 		concurrent: {
 	        target: ['jekyll:server', 'watch'],
 	        options: {
@@ -225,8 +204,8 @@ module.exports = function (grunt) {
 		grunt.loadNpmTasks('grunt-contrib-watch');
 		grunt.task.run(
 			'bower-install-simple',
-			'ender',
-			'coffee',
+			//'ender',
+			//'coffee',
 			'message:welcome',
 			'sass:develop',
 			'concurrent'
@@ -242,7 +221,7 @@ module.exports = function (grunt) {
 		grunt.loadNpmTasks('grunt-contrib-uglify');
 		grunt.task.run(
 			'bower-install-simple',
-			'ender:build',
+			//'ender:build',
 			'sass:production',
 			'coffee',
 			'jekyll:dev',
