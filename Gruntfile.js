@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 			}
 		},
 
-        //secret: grunt.file.readJSON('secret.json'),
+        secret: grunt.file.readJSON('secret.json'),
 
         sftp: {
             test: {
@@ -223,7 +223,7 @@ module.exports = function (grunt) {
 			'bower-install-simple',
 			//'ender:build',
 			'sass:production',
-			'coffee',
+			//'coffee',
 			'jekyll:dev',
 			'message:build_done',
 			'sftp'
