@@ -1,11 +1,11 @@
-_site
-*.sass-cache
-*.idea/
-bower_components
-bower
-frontend-scripts.js
-node_modules/
-*.css
-*.map
-ender/
-secret.json
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+stats.json
+docs
+
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
