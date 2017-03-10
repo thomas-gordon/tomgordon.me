@@ -9,6 +9,8 @@
 import 'babel-polyfill';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import FontFaceObserver from 'fontfaceobserver';
+
 // Import all the third party stuff
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -30,18 +32,29 @@ import { makeSelectLocationState } from 'containers/App/selectors';
 // Load the favicon, the manifest.json file and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
 import '!file-loader?name=[name].[ext]!./favicon.ico';
-import '!file-loader?name=[name].[ext]!./manifest.json';
 import 'file-loader?name=[name].[ext]!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import configureStore from './store';
-
 
 // Import CSS reset and Global Styles
 import './global-styles';
 
 // Import root routes
 import createRoutes from './routes';
+
+ReactGA.initialize(globalData.gaKey);
+
+// Observe loading of Open Sans (to remove open sans, remove the <link> tag in
+// the index.html file and this observer)
+const robotoObserver = new FontFaceObserver('Crimson Text', {});
+
+// When Open Sans is loaded, add a font-family using Open Sans to the body
+robotoObserver.load().then(() => {
+  document.body.classList.add('fontLoaded');
+}, () => {
+  document.body.classList.remove('fontLoaded');
+});
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router
@@ -83,12 +96,9 @@ const render = () => {
 render();
 
 injectTapEventPlugin();
-ReactGA.initialize(globalData.gaKey);
-history.listen((location) => {
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname);
-});
 
+ReactGA.set({ page: '/' });
+ReactGA.pageview('/');
 
 // Install ServiceWorker and AppCache in the end since
 // it's not most important operation and if main code fails,

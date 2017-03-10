@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "yellow": "#FC0",
+    "gray": "#d9d9d9",
+    "dark": "#231F20",
+    "heading": "#5a5e60"
+  },
+  "uiColors": {
+    "success": "#EDFFD9",
+    "warning": "#FFF6D9",
+    "danger": "#FFD9DB",
+    "information": "#D9F0FF"
+  },
+  "spacing": {
+    "unit": 10
+  }
+}
