@@ -81,9 +81,28 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
             <li>Code Editing: <a href="https://www.jetbrains.com/" target="_blank">Jetbrains Intellij (Webstorm, PyCharm, RubyMine)</a></li>
             <li>Deployment: <a href="https://www.docker.com/" target="_blank">Docker</a></li>
           </ul>
-          <h3>See what I am up to:</h3>
+          <h3>Contact and see what I′m up to:</h3>
           <LinkList links={this.props.links} icons={this.props.icons} />
+          <h3>Recent work</h3>
+          <ul>
+            <li><a href="http://pasa.insw.com/" target="_blank">Infrastructure NSW Pool | Webapp</a>: I completed the entire build in React, using Redux and React-router to allow
+            proper data flow management.</li>
+            <li><a href="https://www.yvw.com.au/" target="_blank">Yarra Valley Water | Website</a>: I worked on the frontend components and the style guide onsite, while assisting with integrating
+            agile processes into Yarra Valley′s project management style,</li>
+            <li><a href="https://www.slv.vic.gov.au/" target="_blank">State Library Victoria | Website</a>: I worked on the frontend styleguide and component development, and assisted with
+            skilling up the SLV development team in best practices around frontend development and agile project management.</li>
+            <li><a href="https://www.glenirispantry.com.au/" target="_blank">Glen Iris Pantry | Website</a>: I delivered the entire site via Squarespace and updated the cafe′s digital
+            portfolio.</li>
+          </ul>
+          <p>There are many things I′ve worked on with no public access; I have deployed apps for:</p>
+          <ul>
+            <li><a href="https://www.commbank.com.au/" target="_blank">CBA</a></li>
+            <li><a href="https://www.headspace.org.au/" target="_blank">Headspace</a></li>
+            <li><a href="https://www.climatecouncil.org.au/" target="_blank">Climate Council</a></li>
+            <li><a href="http://www.fya.org.au/" target="_blank">FYA</a></li>
+          </ul>
         </ChildrenWrapper>
+
       </AppWrapper>
     );
   }

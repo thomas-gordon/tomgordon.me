@@ -18,6 +18,7 @@ import Github from 'components/SVG/Github';
 import Resume from 'components/SVG/Resume';
 import LinkedIn from 'components/SVG/LinkedIn';
 import Email from 'components/SVG/Email';
+import Codepen from 'components/SVG/Codepen';
 
 const initialState = fromJS({
   links: data.links,
@@ -28,6 +29,7 @@ const initialState = fromJS({
     resume: (<Resume />),
     linkedIn: (<LinkedIn />),
     email: (<Email />),
+    codepen: (<Codepen />),
   },
 });
 

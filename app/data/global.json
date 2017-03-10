@@ -12,30 +12,36 @@
     },
     {
       "id": 2,
+      "text": "Codepen Experiments",
+      "url": "http://codepen.io/thomas-gordon/",
+      "icon": "codepen"
+    },
+    {
+      "id": 3,
       "text": "LinkedIn",
       "url": "http://www.linkedin.com/profile/view?id=46634189&trk=tab_pro",
       "icon": "linkedIn"
     },
     {
-      "id": 3,
+      "id": 4,
       "text": "Github",
       "url": "http://github.com/thomas-gordon",
       "icon": "github"
     },
     {
-      "id": 4,
+      "id": 5,
       "text": "Twitter",
       "url": "http://www.twitter.com/tomgwebdev",
       "icon": "twitter"
     },
     {
-      "id": 5,
+      "id": 6,
       "text": "Resume",
       "url": "https://docs.google.com/document/d/1Rw7b9PkSPXlfwEWWLziUkVCC5CsWF0Pmbv1R0jZssf8/",
       "icon": "resume"
     },
     {
-      "id": 6,
+      "id": 7,
       "text": "Medium",
       "url": "https://medium.com/@tomgwebdev",
       "icon": "medium"
