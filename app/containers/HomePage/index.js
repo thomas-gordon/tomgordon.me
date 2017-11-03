@@ -93,12 +93,12 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
             skilling up the SLV development team in best practices around frontend development and agile project management.</li>
             <li><a href="https://www.glenirispantry.com.au/" target="_blank">Glen Iris Pantry | Website</a>: I delivered the entire site via Squarespace and updated the cafe′s digital
             portfolio.</li>
+            <li><a href="https://github.com/squareweave/frontend-npm-scripts/">NPM Internal Build Systems</a> for use on any project</li>
+            <li><a href="https://www.climatecouncil.org.au/" target="_blank">Climate Council | Website</a> An older PHP framework had to be used to deliver this site, where most of the frontend is custom.</li>
           </ul>
-          <p>There are many things I′ve worked on with no public access; I have deployed apps for:</p>
           <ul>
-            <li><a href="https://www.commbank.com.au/" target="_blank">CBA</a></li>
+            <li><a href="https://www.commbank.com.au/" target="_blank">CBA (React app)</a></li>
             <li><a href="https://www.headspace.org.au/" target="_blank">Headspace</a></li>
-            <li><a href="https://www.climatecouncil.org.au/" target="_blank">Climate Council</a></li>
             <li><a href="http://www.fya.org.au/" target="_blank">FYA</a></li>
           </ul>
         </ChildrenWrapper>
