@@ -35,6 +35,20 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
+    },
+    {
+      path: '/plex',
+      name: 'plex',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/PlexPage'),
+        ]);
+        const renderRoute = loadModule(cb);
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+        importModules.catch(errorLoading);
+      },
     }, {
       path: '*',
       name: 'notfound',

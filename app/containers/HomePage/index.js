@@ -21,20 +21,20 @@ import {
   makeIcons,
 } from './selectors';
 
-const AppWrapper = styled.div`
+export const AppWrapper = styled.div`
   width:100%;
   height:100%;
   min-width:100%;
   min-height:100%;
 `;
-const ChildrenWrapper = styled.div`
-  position:relative; 
+export const ChildrenWrapper = styled.div`
+  position:relative;
   padding:0 20px 20px 20px;
   max-width:640px;
   margin:0 auto;
 `;
 
-const Avatar = styled.header`
+export const Avatar = styled.header`
   max-width:640px;
   margin:0 auto;
   border-bottom:1px solid #c0c0c0;
