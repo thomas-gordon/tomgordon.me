@@ -75,10 +75,10 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
             <li>Testing: <a href="https://facebook.github.io/jest/" target="_blank">Jest</a>, <a href="https://www.browserstack.com/" target="_blank">BrowserStack</a></li>
             <li>Analytics: <a href="https://analytics.google.com/analytics/web/" target="_blank">Google Analytics</a>, <a href="https://mixpanel.com/" target="_blank">Mixpanel</a></li>
             <li>Project Management: <a href="https://www.atlassian.com/software/jira" target="_blank">Atlassian Jira</a></li>
+            <li>Design: <a href="http://www.adobe.com/au/creativecloud.html" target="_blank">Adobe CC Suite</a>, <a href="http://www.sketchapp.com" target="_blank">Sketch</a></li>
             <li>Wireframing: <a href="https://www.axure.com/" target="_blank">Axure</a>, <a href="https://www.invisionapp.com/" target="_blank">InVision</a></li>
-            <li>Design: <a href="http://www.adobe.com/au/creativecloud.html" target="_blank">Adobe CC Suite</a></li>
             <li>Animation: <a href="https://greensock.com/" target="_blank">GreenSock</a></li>
-            <li>Code Editing: <a href="https://www.jetbrains.com/" target="_blank">Jetbrains Intellij (Webstorm, PyCharm, RubyMine)</a></li>
+            <li>Code Editing: <a href="https://code.visualstudio.com/" target="_blank">VSCode,</a> <a href="https://www.jetbrains.com/" target="_blank">Jetbrains Intellij (Webstorm, PyCharm, RubyMine)</a></li>
             <li>Deployment: <a href="https://www.docker.com/" target="_blank">Docker</a></li>
           </ul>
           <h3>Contact and see what I′m up to:</h3>
