@@ -85,16 +85,15 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
           <LinkList links={this.props.links} icons={this.props.icons} />
           <h3>Recent work</h3>
           <ul>
-            <li><a href="http://pasa.insw.com/" target="_blank">Infrastructure NSW Pool | Webapp</a>: I completed the entire build in React, using Redux and React-router to allow
-            proper data flow management.</li>
+            <li><a href="https://makeeverydropcount.com.au/" target="_blank">Yarra Valley Water | Make Every Drop Campaign</a>: I developed the entire project including
+            animations and wordpress setup.</li>
             <li><a href="https://www.yvw.com.au/" target="_blank">Yarra Valley Water | Website</a>: I worked on the frontend components and the style guide onsite, while assisting with integrating
-            agile processes into Yarra Valley′s project management style,</li>
+            agile processes into Yarra Valley′s project management style.</li>
+            <li><a href="https://www.dumbofeather.com" target="_blank">Dumbo Feather</a>: I manage the complex ecommerce requirements of this popular australian publication.</li>
             <li><a href="https://www.slv.vic.gov.au/" target="_blank">State Library Victoria | Website</a>: I worked on the frontend styleguide and component development, and assisted with
             skilling up the SLV development team in best practices around frontend development and agile project management.</li>
             <li><a href="https://www.glenirispantry.com.au/" target="_blank">Glen Iris Pantry | Website</a>: I delivered the entire site via Squarespace and updated the cafe′s digital
             portfolio.</li>
-            <li><a href="https://github.com/squareweave/frontend-npm-scripts/">NPM Internal Build Systems</a> for use on any project</li>
-            <li><a href="https://www.climatecouncil.org.au/" target="_blank">Climate Council | Website</a> An older PHP framework had to be used to deliver this site, where most of the frontend is custom.</li>
           </ul>
           <ul>
             <li><a href="https://www.commbank.com.au/" target="_blank">CBA (React app)</a></li>
