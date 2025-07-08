@@ -1,7 +1,13 @@
-# Personal Site
+# Setup
 
-1. `yarn`
-2. `npm run start`
+1. `nvm use`
+2. `corepack enable`
+3. `yarn`
+4. `npm run dev`
+
+## Dev
+
+1. `npm run dev`
 
 ## Build to static folder
 
