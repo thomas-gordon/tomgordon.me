@@ -22,7 +22,9 @@ function Home() {
       <aside className={styles.avatar}>
         <img src={Me} width={100} alt={'Tom Gordon'} title={'Tom Gordon'} />
       </aside>
-      <main className={styles['children-wrapper']}>
+      <main
+        className={`${styles['children-wrapper']} ${styles['content-area']}`}
+      >
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{ a: LinkRenderer }}
