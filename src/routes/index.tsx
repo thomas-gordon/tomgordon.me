@@ -15,7 +15,6 @@ function Home() {
       <main className={styles['children-wrapper']}>
         <h1>Hi, I′m Tom. </h1>
         <h2>
-          {' '}
           The modern internet is a mess of competing cultures, technologies and
           marketing strength. My work aims to bring clarity to this landscape.
         </h2>
@@ -34,7 +33,7 @@ function Home() {
         <p>
           I always aim to deliver a given digital project along with a high
           degree of compatibility across the myriad platforms used to consume
-          the web. Having had 10 years experience, I am able to adjust the
+          the web. Having had 16 years experience, I am able to adjust the
           delivery of a project according to the relevant{' '}
           <a href="https://en.wikipedia.org/wiki/Project_management_triangle">
             time/cost/quality
