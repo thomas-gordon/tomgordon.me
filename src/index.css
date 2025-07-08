@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+  * Custom utilities
+  */
+
+@layer utilities {
+  /* A util for managing overflow vertically (esp in modal scenarios) */
+  .justify-safe-center {
+    justify-content: safe center;
+  }
+}
+
+/**
+  * Component styles converted from styled-components
+  */
+
+
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font:
+    18px/150% 'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+body.fontLoaded {
+  font:
+    18px/150% 'Crimson Text',
+    'Roboto',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+#app {
+  background-color: #fafafa;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+p,
+label {
+  line-height: 1.5em;
+}

@@ -1,20 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-
-import { AppWrapper, Avatar, ChildrenWrapper } from "../components/styles";
 import Me from "./tomgordon.jpg";
 import LinkList from "../components/LinkList";
-
+import styles from "./styles.module.css";
 export const Route = createFileRoute("/")({
   component: Home,
 });
 
 function Home() {
   return (
-    <AppWrapper>
-      <Avatar>
+    <div className={styles['app-wrapper']}>
+      <aside className={styles.avatar}>
         <img src={Me} width={100} alt={"Tom Gordon"} title={"Tom Gordon"} />
-      </Avatar>
-      <ChildrenWrapper>
+      </aside>
+      <main className={styles['children-wrapper']}>
         <h1>Hi, I′m Tom. </h1>
         <h2>
           I create with the internet to try and make the world a better place.
@@ -214,7 +212,7 @@ function Home() {
             </a>
           </li>
         </ul>
-      </ChildrenWrapper>
-    </AppWrapper>
+      </main>
+    </div>
   );
 }

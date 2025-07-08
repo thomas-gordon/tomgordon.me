@@ -3,18 +3,16 @@
  * LinkList
  *
  */
-import data from "../../data/global.json";
-import ListItem from "../ListItem";
-import Ul from "./Ul";
+import data from '../../data/global.json'
+import ListItem from '../ListItem'
+import styles from './styles.module.css'
 
-const LinkList = () => {
-  return (
-    <Ul>
-      {data.links.map((link) => (
-        <ListItem key={link.id} {...link} />
-      ))}
-    </Ul>
-  );
-};
+const LinkList = () => (
+  <ul className={styles.ul}>
+    {data.links.map(link => (
+      <ListItem key={link.id} {...link} />
+    ))}
+  </ul>
+)
 
-export default LinkList;
+export default LinkList

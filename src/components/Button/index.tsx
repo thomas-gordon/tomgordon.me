@@ -6,11 +6,10 @@
  * otherwise it'll render a link with an onclick
  */
 
-import { Children } from "react";
-import DefaultButton from "./Default";
-import LinkButton from "./Link";
-import InputButton from "./Input";
-import ExternalLinkButton from "./ExternalLink";
+import { Children } from 'react'
+
+import styles from './styles.module.css'
+import { Link } from '@tanstack/react-router'
 
 function Button(props) {
   const buttonProps = {
@@ -18,28 +17,29 @@ function Button(props) {
     to: props.to ? props.to : null,
     onClick: props.onClick ? props.onClick : null,
     children: props.children ? Children.toArray(props.children) : null,
-    size: props.size ? props.size : "default",
+    size: props.size ? props.size : 'default',
     value: props.value ? props.value : null,
     target: props.target ? props.target : null,
-  };
+    className: styles.button,
+  }
 
   // <button></button>
-  let button = <DefaultButton {...buttonProps} />;
+  let button = <button {...buttonProps} />
 
   // <Link></Link>
   if (buttonProps.to !== null) {
-    button = <LinkButton {...buttonProps} />;
+    button = <Link {...buttonProps} />
   }
 
   if (buttonProps.href !== null) {
-    button = <ExternalLinkButton {...buttonProps} />;
+    button = <a {...buttonProps} />
   }
 
   // <input type="submit" />
   if (!buttonProps.children) {
-    button = <InputButton type="submit" {...buttonProps} />;
+    button = <button type="submit" {...buttonProps} />
   }
 
-  return button;
+  return button
 }
-export default Button;
+export default Button

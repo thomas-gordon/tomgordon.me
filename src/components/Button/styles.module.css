@@ -1,7 +1,5 @@
-import cssData from "../../data/css.json";
-import { css } from "styled-components";
-const buttonStyles = css`
-  padding: ${cssData.spacing.unit}px ${cssData.spacing.unit * 2}px;
+.button {
+  padding: 10px;
   cursor: pointer;
   display: block;
   text-decoration: none;
@@ -36,5 +34,4 @@ const buttonStyles = css`
     top: -2px;
     position: relative;
   }
-`;
-export default buttonStyles;
+}

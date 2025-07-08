@@ -1,0 +1,19 @@
+.app-wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.children-wrapper {
+  position: relative;
+  padding: 0 20px 20px 20px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.avatar {
+  max-width: 640px;
+  margin: 0 auto;
+  border-bottom: 1px solid #c0c0c0;
+}
