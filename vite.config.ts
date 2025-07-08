@@ -15,6 +15,6 @@ export default defineConfig({
       },
     }),
     tsConfigPaths(),
-    tanstackStart(),
+    tanstackStart({ target: "netlify" }),
   ],
 });
