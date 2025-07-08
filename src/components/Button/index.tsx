@@ -1,45 +1,31 @@
-/**
- *
- * Button.react.js
- *
- * A common button, if you pass it a prop "route" it'll render a link to a react-router route
- * otherwise it'll render a link with an onclick
- */
-
-import { Children } from 'react'
-
 import styles from './styles.module.css'
 import { Link } from '@tanstack/react-router'
 
-function Button(props) {
-  const buttonProps = {
-    href: props.href ? props.href : null,
-    to: props.to ? props.to : null,
-    onClick: props.onClick ? props.onClick : null,
-    children: props.children ? Children.toArray(props.children) : null,
-    size: props.size ? props.size : 'default',
-    value: props.value ? props.value : null,
-    target: props.target ? props.target : null,
-    className: styles.button,
-  }
+type ButtonProps = {
+  href?: string
+  to?: string
+  onClick?: () => void
+  children?: React.ReactNode
+  size?: 'default' | 'small' | 'large'
+  value?: string
+  target?: string
+}
 
-  // <button></button>
-  let button = <button {...buttonProps} />
-
+const Button = (props: ButtonProps) => {
   // <Link></Link>
-  if (buttonProps.to !== null) {
-    button = <Link {...buttonProps} />
+  if (props.to) {
+    return <Link {...props} className={styles.button} />
   }
-
-  if (buttonProps.href !== null) {
-    button = <a {...buttonProps} />
+  // <a></a>
+  if (props.href) {
+    return <a {...props} className={styles.button} />
   }
 
   // <input type="submit" />
-  if (!buttonProps.children) {
-    button = <button type="submit" {...buttonProps} />
+  if (!props.children) {
+    return <button type="submit" {...props} className={styles.button} />
   }
 
-  return button
+  return <button {...props} className={styles.button} />
 }
 export default Button

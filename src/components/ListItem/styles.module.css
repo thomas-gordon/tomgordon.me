@@ -1,4 +1,5 @@
-.li {
-  display: block;
+@reference "../../root.css";
 
+.li {
+  @apply block;
 }

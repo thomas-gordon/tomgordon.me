@@ -4,7 +4,7 @@
   "description": "1. `npm i` 2. `npm run start`",
   "main": "index.js",
   "type": "module",
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "yarn@4.9.2",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build"
@@ -40,7 +40,6 @@
     "prettier-plugin-tailwindcss": "~0.6.13",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3",
-    "vite-plugin-radar": "^0.10.0",
     "vite-tsconfig-paths": "^5.1.4"
   }
 }

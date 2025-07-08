@@ -1,37 +1,10 @@
+@reference '../../root.css';
 .button {
-  padding: 10px;
-  cursor: pointer;
-  display: block;
-  text-decoration: none;
-  font-weight: 700;
-  outline: none;
-  border: 1px solid #000;
-  position: relative;
-  transition: all 0.3s;
-  background: white;
-  color: #666;
-  box-shadow: 0 6px #ccc;
-  transition: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  @apply p-[10px] shadow-[0_6px_#ccc] text-gray-800 outline-0 cursor-pointer decoration-0 block relative border bg-white gap-[10px] items-center flex
+  hover:cursor-pointer hover:top-[2px] hover:shadow-[0_4px_#ccc] 
+  active:shadow-[0_0_#ccc] active:top-[6px];
+
   svg {
-    width: 20px;
-    height: 20px;
-    fill: #666;
-  }
-  &:hover {
-    cursor: pointer;
-    box-shadow: 0 4px #666;
-    top: 2px;
-  }
-  &:active {
-    box-shadow: 0 0 #ccc;
-    top: 6px;
-  }
-  svg {
-    margin-left: 5px;
-    top: -2px;
-    position: relative;
+    @apply w-5 h-5 fill-gray-700;
   }
 }

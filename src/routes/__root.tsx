@@ -8,7 +8,7 @@ import {
   Scripts,
 } from '@tanstack/react-router'
 import { useEffect, type JSX } from 'react'
-import '../index.css'
+import '../root.css'
 import FontFaceObserver from 'fontfaceobserver'
 
 export const Route = createRootRoute({
@@ -39,6 +39,7 @@ export const Route = createRootRoute({
       },
     ],
   }),
+
   component: RootComponent,
 })
 
