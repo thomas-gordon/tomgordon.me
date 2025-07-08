@@ -17,8 +17,7 @@
 
 html,
 body {
-  height: 100%;
-  width: 100%;
+  @apply w-full h-full;
 }
 table {
   @apply w-full mb-8 text-left rtl:text-right;
