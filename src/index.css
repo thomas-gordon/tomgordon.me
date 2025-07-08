@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 /**
   * Custom utilities
@@ -17,14 +15,27 @@
   * Component styles converted from styled-components
   */
 
-
-
 html,
 body {
   height: 100%;
   width: 100%;
 }
-
+table {
+  @apply w-full mb-8 text-left rtl:text-right;
+}
+th,
+td {
+  @apply text-left p-3;
+}
+th {
+  @apply bg-gray-200 border align-top border-gray-300 font-semibold;
+}
+td {
+  @apply border align-top border-gray-300;
+  &:first-child {
+    @apply w-1/6;
+  }
+}
 body {
   font:
     18px/150% 'Helvetica Neue',
@@ -52,4 +63,20 @@ body.fontLoaded {
 p,
 label {
   line-height: 1.5em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply text-3xl font-bold mt-8 mb-4;
+}
+ul {
+  @apply list-disc pl-5;
+}
+a {
+  @apply text-blue-600 hover:text-blue-800;
+}
+p {
+  @apply mt-6 mb-4;
 }
