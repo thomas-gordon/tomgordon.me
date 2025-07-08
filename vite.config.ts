@@ -11,6 +11,7 @@ export default defineConfig({
     tsConfigPaths(),
     tanstackStart({ target: 'netlify' }),
     VitePluginRadar({
+      enableDev: true,
       // Google Analytics tag injection
       analytics: {
         id: 'G-Q1EHMXSL9G',

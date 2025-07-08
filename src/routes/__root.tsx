@@ -32,6 +32,12 @@ export const Route = createRootRoute({
       },
       { rel: 'icon', href: '/favicon.ico' },
     ],
+    scripts: [
+      {
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-Q1EHMXSL9G',
+        async: true,
+      },
+    ],
   }),
   component: RootComponent,
 })
