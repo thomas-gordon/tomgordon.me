@@ -12,3 +12,5 @@ npm-debug.log
 .nitro
 .output
 .tanstack
+.netlify
+dist
