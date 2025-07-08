@@ -4,6 +4,7 @@
   "description": "1. `npm i` 2. `npm run start`",
   "main": "index.js",
   "type": "module",
+  "packageManager": "yarn@4.9.1",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build"
