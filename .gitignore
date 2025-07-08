@@ -15,3 +15,4 @@ npm-debug.log
 .netlify
 dist
 .yarn
+routeTree.gen.ts
