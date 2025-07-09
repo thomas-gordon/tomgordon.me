@@ -1,13 +1,13 @@
 // src/routes/__root.tsx
 /// <reference types="vite/client" />
-import type { PropsWithChildren, ReactNode } from 'react'
+import type { PropsWithChildren, type JSX } from 'react'
 import {
   Outlet,
   createRootRoute,
   HeadContent,
   Scripts,
 } from '@tanstack/react-router'
-import { useEffect, type JSX } from 'react'
+import { useEffect } from 'react'
 import '../root.css'
 import FontFaceObserver from 'fontfaceobserver'
 
