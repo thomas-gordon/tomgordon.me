@@ -1,6 +1,6 @@
 // src/routes/__root.tsx
 /// <reference types="vite/client" />
-import type { PropsWithChildren, type JSX } from 'react'
+import type { PropsWithChildren, JSX } from 'react'
 import {
   Outlet,
   createRootRoute,
