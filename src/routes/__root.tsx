@@ -7,9 +7,13 @@ import {
   HeadContent,
   Scripts,
 } from '@tanstack/react-router'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useEffect } from 'react'
 import '../root.css'
 import FontFaceObserver from 'fontfaceobserver'
+import MouseCursor from '../components/MouseCursor'
+
+const queryClient = new QueryClient()
 
 export const Route = createRootRoute({
   head: () => ({
@@ -22,12 +26,12 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Tom Gordon - Frontend Developer based in Melbourne, Australia',
+        title: 'Tom Gordon — Engineer & Team Lead, Melbourne',
       },
     ],
     links: [
       {
-        href: 'https://fonts.googleapis.com/css?family=Crimson+Text',
+        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap',
         rel: 'stylesheet',
       },
       { rel: 'icon', href: '/favicon.ico' },
@@ -55,9 +59,8 @@ const RootDocument = ({
   children,
 }: Readonly<PropsWithChildren>): JSX.Element => {
   useEffect(() => {
-    const robotoObserver = new FontFaceObserver('Crimson Text', {})
+    const robotoObserver = new FontFaceObserver('Space Grotesk', {})
 
-    // When Open Sans is loaded, add a font-family using Open Sans to the body
     robotoObserver.load().then(
       () => {
         document.body.classList.add('fontLoaded')
@@ -73,7 +76,10 @@ const RootDocument = ({
         <HeadContent />
       </head>
       <body>
-        {children}
+        <QueryClientProvider client={queryClient}>
+          {children}
+          <MouseCursor />
+        </QueryClientProvider>
         <Scripts />
       </body>
     </html>

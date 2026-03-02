@@ -1,8 +1,8 @@
 @reference '../../root.css';
 .button {
-  @apply p-[10px] shadow-[0_6px_#ccc] text-gray-800 outline-0 cursor-pointer decoration-0 block relative border bg-white gap-[10px] items-center flex
-  hover:cursor-pointer hover:top-[2px] hover:shadow-[0_4px_#ccc] 
-  active:shadow-[0_0_#ccc] active:top-[6px];
+  @apply p-[10px] shadow-[0_6px_#b8cee6] text-gray-800 outline-0 cursor-pointer decoration-0 relative border border-[#d1dae6] bg-white gap-[10px] items-center flex transition-[top,box-shadow] duration-100
+  hover:cursor-pointer hover:top-[2px] hover:shadow-[0_4px_#b8cee6]
+  active:shadow-[0_0_#b8cee6] active:top-[6px];
 
   svg {
     @apply w-5 h-5 fill-gray-700;

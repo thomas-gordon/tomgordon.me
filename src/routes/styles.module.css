@@ -1,22 +1,71 @@
 @reference '../root.css';
 
 .app-wrapper {
-  @apply w-full h-full mx-auto max-w-[640px];
+  @apply w-full min-h-screen mx-auto max-w-[640px] bg-white;
+  box-shadow:
+    0 0 0 1px #d1dae6,
+    0 4px 24px rgba(30, 58, 138, 0.07);
 }
 
 .children-wrapper {
-  @apply relative p-5 pt-0;
+  @apply relative px-6 pt-2 pb-10;
 }
 
 .avatar {
-  @apply border-b border-b-[#c0c0c0];
+  @apply sticky top-0 z-10 bg-white px-6 pt-6 pb-4;
+  border-bottom: 2px solid #d1dae6;
+  transition: padding 200ms ease;
+
+  img {
+    @apply rounded-full object-cover;
+    width: 72px;
+    height: 72px;
+    outline: 3px solid #bfdbfe;
+    outline-offset: 2px;
+    transition:
+      width 200ms ease,
+      height 200ms ease;
+  }
+}
+
+.avatar--scrolled {
+  @apply pt-3 pb-3;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .content-area {
+  /* Space Grotesk for headings regardless of font-load state */
   h1,
   h2,
   h3,
   h4 {
-    @apply text-3xl font-bold mt-8 mb-4;
+    font-family:
+      'Space Grotesk',
+      'Helvetica Neue',
+      Helvetica,
+      Arial,
+      sans-serif;
+  }
+
+  h1 {
+    @apply text-3xl font-bold mt-6 mb-3 tracking-tight text-gray-900;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold mt-10 mb-3 text-gray-900;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #bfdbfe;
+  }
+
+  h3 {
+    @apply text-xl font-semibold mt-6 mb-2 text-blue-800;
+  }
+
+  h4 {
+    @apply text-xl font-semibold mt-4 mb-1 text-gray-600 uppercase tracking-widest;
   }
 }

@@ -41,22 +41,18 @@ body {
     Helvetica,
     Arial,
     sans-serif;
+  background-color: #f1f4f8;
+  background-image: radial-gradient(#b8c8db 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 body.fontLoaded {
   font:
-    18px/150% 'Crimson Text',
-    'Roboto',
+    18px/150% 'Space Grotesk',
     'Helvetica Neue',
     Helvetica,
     Arial,
     sans-serif;
-}
-
-#app {
-  background-color: #fafafa;
-  min-height: 100%;
-  min-width: 100%;
 }
 
 p,
@@ -68,8 +64,14 @@ ul {
   @apply list-disc pl-5;
 }
 a {
-  @apply text-blue-600 hover:text-blue-800;
+  @apply text-blue-700 hover:text-blue-900 transition-colors duration-150;
 }
 p {
   @apply mt-6 mb-4;
+}
+
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
 }
