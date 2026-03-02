@@ -21,6 +21,7 @@ type LinkProps = {
   url: string
   text: string
   icon: string
+  index?: number
 }
 
 const iconSchema = z.enum([
@@ -56,7 +57,10 @@ const getIcon = (icon: LinkProps['icon']): JSX.Element | null => {
 }
 
 const ListItem = (link: LinkProps) => (
-  <li className={styles.li}>
+  <li
+    className={styles.li}
+    style={{ animationDelay: `${(link.index ?? 0) * 70}ms` }}
+  >
     <Button href={link.url} target="_blank">
       {link.text}
       {getIcon(link.icon)}

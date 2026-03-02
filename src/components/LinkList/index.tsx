@@ -9,8 +9,8 @@ import styles from './styles.module.css'
 
 const LinkList = () => (
   <ul className={styles.ul}>
-    {data.links.map(link => (
-      <ListItem key={link.id} {...link} />
+    {data.links.map((link, i) => (
+      <ListItem key={link.id} {...link} index={i} />
     ))}
   </ul>
 )

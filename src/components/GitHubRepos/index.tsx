@@ -10,8 +10,12 @@ export default function GitHubRepos() {
 
   return (
     <ul className={styles.list}>
-      {repos?.map(repo => (
-        <li key={repo.id} className={styles.item}>
+      {repos?.map((repo, i) => (
+        <li
+          key={repo.id}
+          className={styles.item}
+          style={{ animationDelay: `${i * 80}ms` }}
+        >
           <Button href={repo.html_url} target="_blank">
             {repo.name}
             {repo.language && (

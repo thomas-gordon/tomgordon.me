@@ -1,0 +1,33 @@
+@reference '../../root.css';
+
+.heading {
+  @apply w-full text-left flex items-center justify-between gap-3 cursor-pointer;
+  @apply text-2xl font-semibold mt-10 mb-1 text-gray-900;
+  @apply py-2;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #bfdbfe;
+  font-family:
+    'Space Grotesk',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+
+  &:hover .chevron {
+    color: #1d4ed8;
+  }
+}
+
+.chevron {
+  @apply text-blue-400 flex-shrink-0;
+  transition: transform 300ms ease, color 150ms ease;
+  font-size: 1rem;
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}

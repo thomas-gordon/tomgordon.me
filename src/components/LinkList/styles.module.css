@@ -1,5 +1,5 @@
 @reference "../../root.css";
 
 .ul {
-  @apply list-none w-full p-0 flex flex-wrap gap-[5px];
+  @apply list-none w-full p-0 flex flex-wrap gap-2;
 }

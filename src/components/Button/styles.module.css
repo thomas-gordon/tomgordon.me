@@ -1,10 +1,13 @@
 @reference '../../root.css';
 .button {
-  @apply p-[10px] shadow-[0_6px_#b8cee6] text-gray-800 outline-0 cursor-pointer decoration-0 relative border border-[#d1dae6] bg-white gap-[10px] items-center flex transition-[top,box-shadow] duration-100
-  hover:cursor-pointer hover:top-[2px] hover:shadow-[0_4px_#b8cee6]
-  active:shadow-[0_0_#b8cee6] active:top-[6px];
+  @apply px-4 py-2.5 rounded-xl shadow-[0_5px_#b8cee6] text-gray-800 font-medium text-sm
+    outline-0 cursor-pointer no-underline relative border border-[#d1dae6]
+    bg-white gap-2.5 items-center inline-flex whitespace-nowrap
+    transition-[top,box-shadow,background-color] duration-100
+    hover:bg-blue-50 hover:top-[2px] hover:shadow-[0_3px_#b8cee6]
+    active:shadow-[0_0_#b8cee6] active:top-[5px] active:bg-blue-100;
 
   svg {
-    @apply w-5 h-5 fill-gray-700;
+    @apply w-4 h-4 fill-gray-600 flex-shrink-0;
   }
 }

@@ -12,12 +12,12 @@
 }
 
 .avatar {
-  @apply sticky top-0 z-10 bg-white px-6 pt-6 pb-4;
+  @apply sticky top-0 z-10 bg-white px-6 pt-6 pb-4 flex items-center gap-4;
   border-bottom: 2px solid #d1dae6;
   transition: padding 200ms ease;
 
   img {
-    @apply rounded-full object-cover;
+    @apply rounded-full object-cover flex-shrink-0;
     width: 72px;
     height: 72px;
     outline: 3px solid #bfdbfe;
@@ -35,6 +35,26 @@
     width: 40px;
     height: 40px;
   }
+}
+
+.header-name {
+  font-family:
+    'Space Grotesk',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif;
+  @apply text-lg font-semibold text-gray-900 whitespace-nowrap;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 250ms ease,
+    transform 250ms ease;
+}
+
+.header-name--visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .content-area {
