@@ -1,0 +1,2016 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electric Vehicles — Victoria, Australia 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0c0f;
+        --surface: #111318;
+        --surface2: #181c23;
+        --surface3: #1e222b;
+        --border: rgba(255, 255, 255, 0.07);
+        --border2: rgba(255, 255, 255, 0.12);
+        --accent: #00e5a0;
+        --accent2: #00b87a;
+        --accent-dim: rgba(0, 229, 160, 0.12);
+        --accent-dim2: rgba(0, 229, 160, 0.06);
+        --text: #f0f2f5;
+        --text2: #8a909e;
+        --text3: #555b6a;
+        --city: #3b82f6;
+        --city-bg: rgba(59, 130, 246, 0.12);
+        --hatch: #22c55e;
+        --hatch-bg: rgba(34, 197, 94, 0.12);
+        --smallsuv: #a855f7;
+        --smallsuv-bg: rgba(168, 85, 247, 0.12);
+        --midsuv: #f59e0b;
+        --midsuv-bg: rgba(245, 158, 11, 0.12);
+        --largesuv: #ef4444;
+        --largesuv-bg: rgba(239, 68, 68, 0.12);
+        --sedan: #ec4899;
+        --sedan-bg: rgba(236, 72, 153, 0.12);
+        --ute: #64748b;
+        --ute-bg: rgba(100, 116, 139, 0.12);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* ── HEADER ── */
+      header {
+        padding: 60px 40px 40px;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+      header::before {
+        content: '';
+        position: absolute;
+        top: -80px;
+        right: -80px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 229, 160, 0.08) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .header-label {
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+      h1 {
+        font-family: 'Fraunces', serif;
+        font-size: clamp(32px, 4vw, 52px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        color: var(--text);
+        margin-bottom: 16px;
+      }
+      h1 span {
+        color: var(--accent);
+        font-style: italic;
+      }
+      .header-sub {
+        color: #b0b8c8;
+        font-size: 16px;
+        max-width: 560px;
+        line-height: 1.7;
+      }
+      .header-stats {
+        display: flex;
+        gap: 32px;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+      .stat {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .stat-num {
+        font-family: 'Fraunces', serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .stat-label {
+        font-size: 13px;
+        color: #6b7585;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      /* ── CONTROLS ── */
+      .controls-bar {
+        padding: 20px 40px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        background: var(--surface);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(12px);
+      }
+      .filter-group {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        flex: 1;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        border-radius: 99px;
+        border: 1px solid var(--border2);
+        background: transparent;
+        color: #9aa3b2;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .pill:hover {
+        border-color: var(--accent);
+        color: var(--text);
+      }
+      .pill.active {
+        background: var(--accent-dim);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .pill .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+        opacity: 0.7;
+      }
+
+      .controls-right {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .sort-label {
+        font-size: 13px;
+        color: #6b7585;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      select {
+        background: var(--surface2);
+        border: 1px solid var(--border2);
+        color: var(--text);
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        padding: 7px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        outline: none;
+        appearance: none;
+        padding-right: 30px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238a909e' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+      }
+      select:hover {
+        border-color: var(--accent);
+      }
+
+      .view-toggle {
+        display: flex;
+        border: 1px solid var(--border2);
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .view-btn {
+        padding: 7px 14px;
+        background: transparent;
+        border: none;
+        color: #6b7585;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .view-btn.active {
+        background: var(--accent-dim);
+        color: var(--accent);
+      }
+      .view-btn:hover:not(.active) {
+        color: var(--text);
+        background: var(--surface3);
+      }
+
+      .search-wrap {
+        position: relative;
+      }
+      .search-wrap input {
+        background: var(--surface2);
+        border: 1px solid var(--border2);
+        color: var(--text);
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        padding: 7px 10px 7px 32px;
+        border-radius: 6px;
+        outline: none;
+        width: 190px;
+        transition: border-color 0.15s;
+      }
+      .search-wrap input::placeholder {
+        color: var(--text3);
+      }
+      .search-wrap input:focus {
+        border-color: var(--accent);
+      }
+      .search-icon {
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text3);
+        font-size: 14px;
+        pointer-events: none;
+      }
+
+      /* ── MAIN ── */
+      main {
+        padding: 24px 40px 60px;
+      }
+
+      .result-count {
+        font-size: 13px;
+        color: #6b7585;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+      .result-count span {
+        color: var(--accent);
+      }
+
+      /* ── TABLE VIEW ── */
+      .table-wrap {
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 1020px;
+      }
+      thead th {
+        text-align: left;
+        padding: 12px 16px;
+        font-size: 12px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7585;
+        border-bottom: 1px solid var(--border);
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        white-space: nowrap;
+        cursor: pointer;
+        user-select: none;
+        transition: color 0.15s;
+      }
+      thead th:hover {
+        color: #9aa3b2;
+      }
+      thead th.sorted {
+        color: var(--accent);
+      }
+      thead th .sort-arrow {
+        margin-left: 4px;
+        opacity: 0.5;
+      }
+      thead th.sorted .sort-arrow {
+        opacity: 1;
+      }
+      tbody tr {
+        border-bottom: 1px solid var(--border);
+        transition: background 0.12s;
+        cursor: pointer;
+      }
+      tbody tr:hover {
+        background: var(--accent-dim2);
+      }
+      tbody tr:last-child {
+        border-bottom: none;
+      }
+      td {
+        padding: 14px 16px;
+        vertical-align: middle;
+        font-family: 'Inter', sans-serif;
+      }
+      .model-cell {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .model-name {
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text);
+      }
+      .brand-cell {
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+        white-space: nowrap;
+      }
+      .type-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 10px;
+        border-radius: 99px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+      .price-cell {
+        font-family: 'DM Mono', monospace;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text);
+        white-space: nowrap;
+      }
+      .price-sub {
+        font-size: 12px;
+        color: #6b7585;
+        margin-top: 2px;
+      }
+      .battery-cell {
+        white-space: nowrap;
+        color: #9aa3b2;
+        font-family: 'DM Mono', monospace;
+        font-size: 14px;
+      }
+      .range-cell {
+        white-space: nowrap;
+      }
+      .range-val {
+        font-family: 'DM Mono', monospace;
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--accent);
+      }
+      .range-bar-wrap {
+        background: var(--surface3);
+        border-radius: 99px;
+        height: 3px;
+        width: 120px;
+        margin-top: 4px;
+        overflow: hidden;
+      }
+      .range-bar-fill {
+        height: 3px;
+        border-radius: 99px;
+        background: linear-gradient(90deg, var(--accent2), var(--accent));
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .size-cell {
+        color: #9aa3b2;
+        white-space: nowrap;
+        font-family: 'DM Mono', monospace;
+        font-size: 14px;
+      }
+      .features-cell {
+        color: #9aa3b2;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        line-height: 1.7;
+        max-width: 240px;
+      }
+
+      /* ── CARD VIEW ── */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        cursor: pointer;
+        transition:
+          border-color 0.15s,
+          transform 0.15s,
+          background 0.15s;
+        position: relative;
+        overflow: hidden;
+      }
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--type-color, var(--accent));
+        opacity: 0;
+        transition: opacity 0.15s;
+      }
+      .card:hover {
+        border-color: var(--border2);
+        background: var(--surface2);
+        transform: translateY(-2px);
+      }
+      .card:hover::before {
+        opacity: 1;
+      }
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 14px;
+      }
+      .card-title {
+        font-family: 'Fraunces', serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1.2;
+      }
+      .card-brand {
+        font-size: 13px;
+        color: #6b7585;
+        margin-top: 3px;
+        font-weight: 500;
+      }
+      .card-price {
+        font-family: 'DM Mono', monospace;
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--accent);
+        text-align: right;
+        white-space: nowrap;
+      }
+      .card-price-label {
+        font-size: 12px;
+        color: #6b7585;
+        text-align: right;
+        margin-top: 2px;
+      }
+      .card-metrics {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .metric {
+        background: var(--surface3);
+        border-radius: 8px;
+        padding: 10px;
+      }
+      .metric-label {
+        font-size: 11px;
+        color: #6b7585;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
+      .metric-value {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .card-range {
+        margin-bottom: 14px;
+      }
+      .card-range-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+        align-items: baseline;
+      }
+      .card-range-label {
+        font-size: 12px;
+        color: #6b7585;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .card-range-val {
+        font-family: 'DM Mono', monospace;
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--accent);
+      }
+      .card-bar {
+        background: var(--surface3);
+        border-radius: 99px;
+        height: 4px;
+        overflow: hidden;
+      }
+      .card-bar-fill {
+        height: 4px;
+        border-radius: 99px;
+        background: linear-gradient(90deg, var(--accent2), var(--accent));
+      }
+      .card-features {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .card-feature {
+        font-size: 13px;
+        color: #9aa3b2;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        line-height: 1.5;
+      }
+      .card-feature::before {
+        content: '—';
+        color: #555b6a;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      /* ── MODAL ── */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s;
+      }
+      .modal-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .modal {
+        background: var(--surface);
+        border: 1px solid var(--border2);
+        border-radius: 16px;
+        max-width: 640px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        transform: translateY(20px);
+        transition: transform 0.2s;
+        position: relative;
+      }
+      .modal-overlay.open .modal {
+        transform: translateY(0);
+      }
+      .modal-accent-bar {
+        height: 3px;
+        border-radius: 16px 16px 0 0;
+      }
+      .modal-content {
+        padding: 28px;
+      }
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--text2);
+        font-family: 'DM Mono', monospace;
+        font-size: 18px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s;
+        line-height: 1;
+      }
+      .modal-close:hover {
+        color: var(--text);
+        border-color: var(--border2);
+      }
+      .modal-header {
+        margin-bottom: 24px;
+      }
+      .modal-brand {
+        font-size: 13px;
+        color: #6b7585;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        font-weight: 500;
+      }
+      .modal-title {
+        font-family: 'Fraunces', serif;
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1.1;
+        margin-bottom: 12px;
+      }
+      .modal-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .modal-metric {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 14px;
+      }
+      .modal-metric-label {
+        font-size: 11px;
+        color: #6b7585;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        font-weight: 500;
+      }
+      .modal-metric-value {
+        font-family: 'DM Mono', monospace;
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--text);
+      }
+      .modal-metric-value.accent {
+        color: var(--accent);
+      }
+      .modal-section-title {
+        font-size: 12px;
+        color: #6b7585;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        font-weight: 600;
+      }
+      .modal-range-section {
+        margin-bottom: 24px;
+      }
+      .modal-range-bar {
+        background: var(--surface3);
+        border-radius: 99px;
+        height: 6px;
+        overflow: hidden;
+        margin-top: 10px;
+      }
+      .modal-range-fill {
+        height: 6px;
+        border-radius: 99px;
+        background: linear-gradient(90deg, var(--accent2), var(--accent));
+      }
+      .modal-range-val {
+        font-family: 'DM Mono', monospace;
+        font-size: 40px;
+        font-weight: 500;
+        color: var(--accent);
+      }
+      .modal-range-label {
+        font-size: 13px;
+        color: #6b7585;
+        margin-top: 4px;
+      }
+      .modal-features {
+        margin-bottom: 24px;
+      }
+      .modal-feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 15px;
+        color: #b0b8c8;
+        line-height: 1.5;
+      }
+      .modal-feature-item:last-child {
+        border-bottom: none;
+      }
+      .modal-feature-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+        flex-shrink: 0;
+        margin-top: 6px;
+      }
+      .modal-note {
+        background: var(--accent-dim2);
+        border: 1px solid rgba(0, 229, 160, 0.1);
+        border-radius: 8px;
+        padding: 14px 16px;
+        font-size: 13px;
+        color: #6b7585;
+        line-height: 1.7;
+      }
+
+      /* ── EMPTY ── */
+      .empty {
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--text3);
+      }
+      .empty-icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+        opacity: 0.4;
+      }
+      .empty-text {
+        font-family: 'Fraunces', serif;
+        font-size: 22px;
+        color: #9aa3b2;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 24px 40px;
+        color: #6b7585;
+        font-size: 13px;
+        line-height: 1.75;
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .card {
+        animation: fadeInUp 0.3s ease both;
+      }
+      tbody tr {
+        animation: fadeInUp 0.2s ease both;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        header {
+          padding: 40px 20px 28px;
+        }
+        .controls-bar {
+          padding: 14px 20px;
+        }
+        main {
+          padding: 16px 20px 40px;
+        }
+        footer {
+          padding: 16px 20px;
+        }
+        .cards-grid {
+          grid-template-columns: 1fr;
+        }
+        .header-stats {
+          gap: 20px;
+        }
+        .modal-metrics {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-label">Victoria, Australia · March 2026</div>
+      <h1>Electric Vehicles<br /><span>Compared</span></h1>
+      <p class="header-sub">
+        Every new fully electric vehicle currently on sale in Victoria —
+        prices, battery specs, range and features in one place.
+      </p>
+      <div class="header-stats">
+        <div class="stat">
+          <span class="stat-num" id="stat-total">27</span
+          ><span class="stat-label">Models</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">$24k</span
+          ><span class="stat-label">Cheapest</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">750km</span
+          ><span class="stat-label">Best range</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">7</span
+          ><span class="stat-label">Body types</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="controls-bar">
+      <div class="filter-group" id="filter-group">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="city">
+          <span class="dot" style="background: #3b82f6"></span>City car
+        </button>
+        <button class="pill" data-filter="hatch">
+          <span class="dot" style="background: #22c55e"></span>Hatchback
+        </button>
+        <button class="pill" data-filter="small-suv">
+          <span class="dot" style="background: #a855f7"></span>Small SUV
+        </button>
+        <button class="pill" data-filter="mid-suv">
+          <span class="dot" style="background: #f59e0b"></span>Mid SUV
+        </button>
+        <button class="pill" data-filter="large-suv">
+          <span class="dot" style="background: #ef4444"></span>Large SUV
+        </button>
+        <button class="pill" data-filter="sedan">
+          <span class="dot" style="background: #ec4899"></span>Sedan
+        </button>
+        <button class="pill" data-filter="ute">
+          <span class="dot" style="background: #64748b"></span>Ute
+        </button>
+      </div>
+      <div class="controls-right">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="search" placeholder="Search…" />
+        </div>
+        <span class="sort-label">Sort</span>
+        <select id="sort-select">
+          <option value="price">Sort: Price ↑</option>
+          <option value="range">Sort: Range ↓</option>
+          <option value="battery">Sort: Battery ↓</option>
+          <option value="brand">Sort: Brand A–Z</option>
+          <option value="name">Sort: Model A–Z</option>
+        </select>
+        <div class="view-toggle">
+          <button
+            class="view-btn active"
+            id="btn-table"
+            onclick="setView('table')"
+          >
+            ≡ Table
+          </button>
+          <button class="view-btn" id="btn-cards" onclick="setView('cards')">
+            ⊞ Cards
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <div class="result-count" id="result-count"></div>
+      <div id="table-view">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-col="brand">
+                  Brand <span class="sort-arrow">↕</span>
+                </th>
+                <th data-col="name">
+                  Model <span class="sort-arrow">↕</span>
+                </th>
+                <th>Type</th>
+                <th>Size</th>
+                <th data-col="price">
+                  Price (ex. ORCs) <span class="sort-arrow">↕</span>
+                </th>
+                <th data-col="battery">
+                  Battery <span class="sort-arrow">↕</span>
+                </th>
+                <th data-col="range">
+                  WLTP Range <span class="sort-arrow">↕</span>
+                </th>
+                <th>Key features</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="cards-view" style="display: none">
+        <div class="cards-grid" id="cards-grid"></div>
+      </div>
+      <div id="empty-state" style="display: none">
+        <div class="empty">
+          <div class="empty-icon">⚡</div>
+          <div class="empty-text">No vehicles found</div>
+          <div>Try a different filter or search term</div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Prices are manufacturer list prices before on-road costs (stamp duty,
+      registration, CTP). Drive-away typically adds $3,000–$6,000 in Victoria.
+      WLTP range is manufacturer-claimed under controlled conditions —
+      real-world range is typically 10–20% lower. Data current March 2026.
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+      <div class="modal" id="modal">
+        <div class="modal-accent-bar" id="modal-accent-bar"></div>
+        <div class="modal-content">
+          <button class="modal-close" onclick="closeModal()">×</button>
+          <div class="modal-header">
+            <div class="modal-brand" id="modal-brand"></div>
+            <div class="modal-title" id="modal-title"></div>
+            <span class="type-badge" id="modal-badge"></span>
+          </div>
+          <div class="modal-metrics" id="modal-metrics"></div>
+          <div class="modal-range-section">
+            <div class="modal-section-title">WLTP driving range</div>
+            <div class="modal-range-val" id="modal-range-val"></div>
+            <div class="modal-range-label">
+              kilometres claimed · real-world typically 10–20% less
+            </div>
+            <div class="modal-range-bar">
+              <div class="modal-range-fill" id="modal-range-fill"></div>
+            </div>
+          </div>
+          <div class="modal-features">
+            <div class="modal-section-title">Features</div>
+            <div id="modal-features-list"></div>
+          </div>
+          <div class="modal-note" id="modal-note"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const TYPE_COLORS = {
+        city: '#3b82f6',
+        hatch: '#22c55e',
+        'small-suv': '#a855f7',
+        'mid-suv': '#f59e0b',
+        'large-suv': '#ef4444',
+        sedan: '#ec4899',
+        ute: '#64748b',
+      }
+      const TYPE_LABELS = {
+        city: 'City car',
+        hatch: 'Hatchback',
+        'small-suv': 'Small SUV',
+        'mid-suv': 'Mid SUV',
+        'large-suv': 'Large SUV',
+        sedan: 'Sedan',
+        ute: 'Ute',
+      }
+      const TYPE_BG = {
+        city: 'rgba(59,130,246,0.12)',
+        hatch: 'rgba(34,197,94,0.12)',
+        'small-suv': 'rgba(168,85,247,0.12)',
+        'mid-suv': 'rgba(245,158,11,0.12)',
+        'large-suv': 'rgba(239,68,68,0.12)',
+        sedan: 'rgba(236,72,153,0.12)',
+        ute: 'rgba(100,116,139,0.12)',
+      }
+      const MAX_RANGE = 750
+
+      const evs = [
+        {
+          brand: 'BYD',
+          model: 'Atto 1 Essential',
+          type: 'city',
+          size: '3.78m',
+          price: 23990,
+          battery: '30 kWh',
+          batteryN: 30,
+          range: '~230 km',
+          rangeN: 230,
+          features: [
+            'BYD Blade LFP battery',
+            '8-in-1 electric powertrain',
+            '12.8" rotatable touchscreen',
+            'Full ADAS safety suite',
+            'DC fast charge 10–80% ~30 min',
+            '360° surround camera',
+          ],
+        },
+        {
+          brand: 'BYD',
+          model: 'Atto 1 Premium',
+          type: 'city',
+          size: '3.78m',
+          price: 27990,
+          battery: '43 kWh',
+          batteryN: 43,
+          range: '~320 km',
+          rangeN: 320,
+          features: [
+            'BYD Blade LFP battery',
+            '8-in-1 electric powertrain',
+            '12.8" rotatable touchscreen',
+            'Full ADAS safety suite',
+            'DC fast charge 10–80% ~30 min',
+            'Wireless phone charging',
+          ],
+        },
+        {
+          brand: 'BYD',
+          model: 'Dolphin Essential',
+          type: 'hatch',
+          size: '4.29m',
+          price: 29990,
+          battery: '44 kWh',
+          batteryN: 44,
+          range: '~340 km',
+          rangeN: 340,
+          features: [
+            'Blade LFP battery',
+            '12.8" rotatable display',
+            'Wireless CarPlay & Android Auto',
+            'Adaptive cruise control',
+            'DC fast charge capable',
+            'Heated front seats',
+          ],
+        },
+        {
+          brand: 'BYD',
+          model: 'Dolphin Premium',
+          type: 'hatch',
+          size: '4.29m',
+          price: 35990,
+          battery: '60 kWh',
+          batteryN: 60,
+          range: '~427 km',
+          rangeN: 427,
+          features: [
+            'Blade LFP battery',
+            '12.8" rotatable display',
+            'Wireless CarPlay & Android Auto',
+            'Larger 60 kWh battery',
+            'DC fast charge capable',
+            'Heat pump air conditioning',
+          ],
+        },
+        {
+          brand: 'BYD',
+          model: 'Atto 2',
+          type: 'small-suv',
+          size: '4.31m',
+          price: 31990,
+          battery: '51 kWh',
+          batteryN: 51,
+          range: '~401 km',
+          rangeN: 401,
+          features: [
+            'Blade LFP battery',
+            'V2L bi-directional charging',
+            '12.8" touchscreen',
+            '360° cameras',
+            'DC fast charge 10–80% ~39 min',
+            'Compact SUV footprint',
+          ],
+        },
+        {
+          brand: 'GWM',
+          model: 'Ora Lux',
+          type: 'hatch',
+          size: '4.24m',
+          price: 35990,
+          battery: '58 kWh',
+          batteryN: 58,
+          range: '~400 km',
+          rangeN: 400,
+          features: [
+            'LFP battery (upgraded for 2026)',
+            'Heat pump air conditioning',
+            'V2L capability',
+            'Retro-chic styling',
+            'Built in Thailand',
+            'Wireless CarPlay & Android Auto',
+          ],
+        },
+        {
+          brand: 'MG',
+          model: 'MG4 RWD',
+          type: 'hatch',
+          size: '4.29m',
+          price: 37990,
+          battery: '51 kWh',
+          batteryN: 51,
+          range: '~350 km',
+          rangeN: 350,
+          features: [
+            'RWD sporty dynamics',
+            'Wireless phone charging',
+            'ANCAP 5-star safety',
+            'Sporty hatchback proportions',
+            'Wide model range available',
+            'Over-the-air software updates',
+          ],
+        },
+        {
+          brand: 'MG',
+          model: 'MG4 Long Range',
+          type: 'hatch',
+          size: '4.29m',
+          price: 45990,
+          battery: '64 kWh',
+          batteryN: 64,
+          range: '~530 km',
+          rangeN: 530,
+          features: [
+            '64 kWh large battery',
+            'V2L capable',
+            'ANCAP 5-star safety',
+            'RWD performance',
+            'Long range capability',
+            'Wireless CarPlay & Android Auto',
+          ],
+        },
+        {
+          brand: 'Chery',
+          model: 'Omoda E5',
+          type: 'small-suv',
+          size: '4.40m',
+          price: 38990,
+          battery: '61 kWh',
+          batteryN: 61,
+          range: '~402 km',
+          rangeN: 402,
+          features: [
+            'LFP battery',
+            '130 kW DC fast charging',
+            '10.25" dual screens',
+            'Heated seats',
+            'Full ADAS suite',
+            'Compact and practical',
+          ],
+        },
+        {
+          brand: 'Leapmotor',
+          model: 'B10',
+          type: 'small-suv',
+          size: '4.27m',
+          price: 38990,
+          battery: '~50 kWh',
+          batteryN: 50,
+          range: '~390 km',
+          rangeN: 390,
+          features: [
+            'Cell-to-chassis battery tech',
+            '14.6" central touchscreen',
+            'Rear view cameras',
+            'Lane keep assist',
+            'Compact SUV body',
+            'New brand to Australia',
+          ],
+        },
+        {
+          brand: 'Hyundai',
+          model: 'Inster Standard',
+          type: 'city',
+          size: '3.83m',
+          price: 39000,
+          battery: '42 kWh',
+          batteryN: 42,
+          range: '~300 km',
+          rangeN: 300,
+          features: [
+            'Sliding rear seats for flexibility',
+            'V2L bi-directional charging',
+            'NMC battery chemistry',
+            'ANCAP 5-star safety',
+            'Surprisingly spacious inside',
+            'Urban-focused dimensions',
+          ],
+        },
+        {
+          brand: 'Hyundai',
+          model: 'Inster Extended',
+          type: 'city',
+          size: '3.83m',
+          price: 43000,
+          battery: '49 kWh',
+          batteryN: 49,
+          range: '~360 km',
+          rangeN: 360,
+          features: [
+            'Sliding rear seats for flexibility',
+            'V2L bi-directional charging',
+            'NMC battery chemistry',
+            'ANCAP 5-star safety',
+            'Panoramic sunroof available',
+            'Urban-focused dimensions',
+          ],
+        },
+        {
+          brand: 'Jeep',
+          model: 'Avenger',
+          type: 'small-suv',
+          size: '4.08m',
+          price: 40000,
+          battery: '54 kWh',
+          batteryN: 54,
+          range: '~380 km',
+          rangeN: 380,
+          features: [
+            'European design heritage',
+            'Sunroof standard',
+            'Wireless CarPlay & Android Auto',
+            'Full ADAS suite',
+            'Off-road drive modes',
+            'Compact urban-SUV proportions',
+          ],
+        },
+        {
+          brand: 'MG',
+          model: 'S5 Standard',
+          type: 'small-suv',
+          size: '4.39m',
+          price: 40490,
+          battery: '49 kWh',
+          batteryN: 49,
+          range: '~340 km',
+          rangeN: 340,
+          features: [
+            'Traditional interior layout',
+            'Physical controls & volume knob',
+            'Wireless CarPlay & Android Auto',
+            'Adaptive cruise control',
+            'ANCAP 5-star safety',
+            'Auto-on via seat sensor',
+          ],
+        },
+        {
+          brand: 'MG',
+          model: 'S5 Long Range',
+          type: 'small-suv',
+          size: '4.39m',
+          price: 45990,
+          battery: '62 kWh',
+          batteryN: 62,
+          range: '~430 km',
+          rangeN: 430,
+          features: [
+            'Traditional interior layout',
+            'Physical controls & volume knob',
+            'Larger 62 kWh battery',
+            'Wireless CarPlay & Android Auto',
+            'ANCAP 5-star safety',
+            'Heated & ventilated seats',
+          ],
+        },
+        {
+          brand: 'Geely',
+          model: 'EX5',
+          type: 'mid-suv',
+          size: '4.61m',
+          price: 44584,
+          battery: '~63 kWh',
+          batteryN: 63,
+          range: '~430 km',
+          rangeN: 430,
+          features: [
+            'Premium tech at sharp price',
+            '14.6" central touchscreen',
+            'Ambient interior lighting',
+            'Heated & ventilated seats',
+            'V2L capable',
+            'Competitive mid-SUV option',
+          ],
+        },
+        {
+          brand: 'Kia',
+          model: 'EV3 Standard',
+          type: 'small-suv',
+          size: '4.30m',
+          price: 47600,
+          battery: '58 kWh',
+          batteryN: 58,
+          range: '~436 km',
+          rangeN: 436,
+          features: [
+            'Suspension tuned for Aus roads',
+            '12.3" driver + 5" climate screens',
+            'Practical large boot',
+            'Wireless CarPlay & Android Auto',
+            'ANCAP 5-star safety',
+            'Heat pump standard',
+          ],
+        },
+        {
+          brand: 'Kia',
+          model: 'EV3 Long Range',
+          type: 'small-suv',
+          size: '4.30m',
+          price: 56000,
+          battery: '81 kWh',
+          batteryN: 81,
+          range: '~604 km',
+          rangeN: 604,
+          features: [
+            'Massive 81 kWh battery',
+            'Suspension tuned for Aus roads',
+            'Best-in-class small SUV range',
+            'Wireless CarPlay & Android Auto',
+            'ANCAP 5-star safety',
+            'Heat pump standard',
+          ],
+        },
+        {
+          brand: 'Hyundai',
+          model: 'Kona Electric',
+          type: 'small-suv',
+          size: '4.35m',
+          price: 54000,
+          battery: '48–65 kWh',
+          batteryN: 56,
+          range: '390–490 km',
+          rangeN: 440,
+          features: [
+            'Established EV model',
+            'Heat pump standard',
+            'ANCAP 5-star safety',
+            'V2L capable',
+            'Over-the-air updates',
+            'Two battery options',
+          ],
+        },
+        {
+          brand: 'Volvo',
+          model: 'EX30',
+          type: 'small-suv',
+          size: '4.23m',
+          price: 55990,
+          battery: '51–69 kWh',
+          batteryN: 60,
+          range: '344–476 km',
+          rangeN: 410,
+          features: [
+            'Compact Volvo premium SUV',
+            'Google-based infotainment',
+            'Scandinavian minimalist interior',
+            'ADAS suite',
+            'Harman Kardon sound available',
+            'Solid safety credentials',
+          ],
+        },
+        {
+          brand: 'Kia',
+          model: 'EV5',
+          type: 'mid-suv',
+          size: '4.62m',
+          price: 56770,
+          battery: '64–88 kWh',
+          batteryN: 76,
+          range: '400–555 km',
+          rangeN: 477,
+          features: [
+            'Practical family SUV',
+            '800V ultra-fast charging',
+            'Wireless CarPlay & Android Auto',
+            'ANCAP 5-star safety',
+            'V2L bi-directional charging',
+            'Two battery options',
+          ],
+        },
+        {
+          brand: 'BYD',
+          model: 'Sealion 7 Premium RWD',
+          type: 'mid-suv',
+          size: '4.83m',
+          price: 54990,
+          battery: '82 kWh',
+          batteryN: 82,
+          range: '~567 km',
+          rangeN: 567,
+          features: [
+            'Blade battery tech',
+            'Large panoramic glass roof',
+            'Full ADAS suite',
+            '15.6" central display',
+            'RWD single motor',
+            'Best-selling Tesla Model Y rival',
+          ],
+        },
+        {
+          brand: 'BYD',
+          model: 'Sealion 7 Performance AWD',
+          type: 'mid-suv',
+          size: '4.83m',
+          price: 64990,
+          battery: '82 kWh',
+          batteryN: 82,
+          range: '~542 km',
+          rangeN: 542,
+          features: [
+            'Dual motor AWD',
+            '0–100 km/h in 4.5 sec',
+            'Blade battery tech',
+            'Large panoramic glass roof',
+            'Full ADAS suite',
+            'V2L capable',
+          ],
+        },
+        {
+          brand: 'Tesla',
+          model: 'Model Y RWD',
+          type: 'mid-suv',
+          size: '4.75m',
+          price: 58900,
+          battery: '60 kWh LFP',
+          batteryN: 60,
+          range: '466 km',
+          rangeN: 466,
+          features: [
+            'Tesla Supercharger network',
+            'Autopilot driver assist standard',
+            'OTA updates always included',
+            '15.4" horizontal touchscreen',
+            'ANCAP 5-star safety',
+            '5-year unlimited km warranty',
+          ],
+        },
+        {
+          brand: 'Tesla',
+          model: 'Model Y Long Range AWD',
+          type: 'mid-suv',
+          size: '4.75m',
+          price: 72900,
+          battery: '75 kWh NMC',
+          batteryN: 75,
+          range: '600 km',
+          rangeN: 600,
+          features: [
+            'Dual motor all-wheel drive',
+            'Tesla Supercharger network',
+            '250 kW DC charging speed',
+            'Autopilot driver assist standard',
+            'ANCAP 5-star safety',
+            '600 km class-leading range',
+          ],
+        },
+        {
+          brand: 'Tesla',
+          model: 'Model Y Performance AWD',
+          type: 'mid-suv',
+          size: '4.75m',
+          price: 89400,
+          battery: '~75 kWh NMC',
+          batteryN: 75,
+          range: '~560 km',
+          rangeN: 560,
+          features: [
+            '0–100 km/h in 3.7 sec',
+            'Dual motor all-wheel drive',
+            'Lowered adaptive suspension',
+            '20" Überturbine wheels',
+            'Tesla Supercharger network',
+            'Top-spec Model Y',
+          ],
+        },
+        {
+          brand: 'Hyundai',
+          model: 'Elexio Elite',
+          type: 'mid-suv',
+          size: '4.66m',
+          price: 59000,
+          battery: '88 kWh',
+          batteryN: 88,
+          range: '546 km',
+          rangeN: 546,
+          features: [
+            '88 kWh large battery',
+            '27" widescreen dashboard display',
+            'DC 10–80% in 38 min',
+            'V2L bi-directional charging',
+            'Wireless CarPlay & Android Auto',
+            '7-year unlimited km warranty',
+          ],
+        },
+        {
+          brand: 'BYD',
+          model: 'Seal Dynamic',
+          type: 'sedan',
+          size: '4.80m',
+          price: 54990,
+          battery: '61 kWh',
+          batteryN: 61,
+          range: '~440 km',
+          rangeN: 440,
+          features: [
+            'Sport sedan proportions',
+            '800V fast charging platform',
+            'Adaptive air suspension option',
+            'ADAS suite',
+            'Halo-LED lighting signature',
+            'Competitive Tesla Model 3 rival',
+          ],
+        },
+        {
+          brand: 'BYD',
+          model: 'Seal Performance AWD',
+          type: 'sedan',
+          size: '4.80m',
+          price: 67990,
+          battery: '83 kWh',
+          batteryN: 83,
+          range: '~570 km',
+          rangeN: 570,
+          features: [
+            '0–100 km/h in 3.8 sec',
+            'Dual motor AWD',
+            '800V fast charging',
+            'Large 83 kWh battery',
+            'Adaptive air suspension',
+            'Track-capable performance',
+          ],
+        },
+        {
+          brand: 'Kia',
+          model: 'EV6 GT-Line RWD',
+          type: 'sedan',
+          size: '4.68m',
+          price: 64000,
+          battery: '77 kWh',
+          batteryN: 77,
+          range: '~528 km',
+          rangeN: 528,
+          features: [
+            '800V ultra-fast charging',
+            'Futuristic crossover-sedan',
+            'Premium Meridian audio',
+            'V2L bi-directional capable',
+            'GT variant available',
+            'Adaptive cruise control',
+          ],
+        },
+        {
+          brand: 'Tesla',
+          model: 'Model 3 Long Range RWD',
+          type: 'sedan',
+          size: '4.72m',
+          price: 61900,
+          battery: '~82 kWh NMC',
+          batteryN: 82,
+          range: '750 km',
+          rangeN: 750,
+          features: [
+            "Australia's longest-range EV",
+            'NMC battery chemistry',
+            'Tesla Supercharger network',
+            'Autopilot driver assist',
+            '15.4" touchscreen',
+            'OTA updates always included',
+          ],
+        },
+        {
+          brand: 'Tesla',
+          model: 'Model 3 Performance AWD',
+          type: 'sedan',
+          size: '4.72m',
+          price: 80900,
+          battery: '~75 kWh NMC',
+          batteryN: 75,
+          range: '571 km',
+          rangeN: 571,
+          features: [
+            '0–100 km/h in 3.1 sec',
+            'Top speed 261 km/h',
+            'Upgraded NMC battery',
+            'Tesla Supercharger network',
+            'Autopilot driver assist',
+            'Track Mode included',
+          ],
+        },
+        {
+          brand: 'Polestar',
+          model: '2 Long Range Single Motor',
+          type: 'sedan',
+          size: '4.61m',
+          price: 67900,
+          battery: '82 kWh',
+          batteryN: 82,
+          range: '659 km',
+          rangeN: 659,
+          features: [
+            'Google-built infotainment system',
+            'Scandinavian premium design',
+            'OTA updates always included',
+            'Harman Kardon audio standard',
+            'Pilot Assist driver aid',
+            'Excellent long-range credentials',
+          ],
+        },
+        {
+          brand: 'Hyundai',
+          model: 'Ioniq 5 RWD',
+          type: 'mid-suv',
+          size: '4.64m',
+          price: 76200,
+          battery: '84 kWh',
+          batteryN: 84,
+          range: '570 km',
+          rangeN: 570,
+          features: [
+            '800V ultra-fast charging',
+            'V2L & V2H bi-directional power',
+            'Flat-floor interior',
+            'Relaxation front seats',
+            'Retro-futurist exterior design',
+            'ANCAP 5-star safety',
+          ],
+        },
+        {
+          brand: 'Hyundai',
+          model: 'Ioniq 5 N Line AWD',
+          type: 'mid-suv',
+          size: '4.64m',
+          price: 91700,
+          battery: '84 kWh',
+          batteryN: 84,
+          range: '495 km',
+          rangeN: 495,
+          features: [
+            '239 kW dual motor AWD',
+            '800V ultra-fast charging',
+            'N Line sport body kit',
+            'V2L & V2H capability',
+            'Sport suspension tuning',
+            'ANCAP 5-star safety',
+          ],
+        },
+        {
+          brand: 'Tesla',
+          model: 'Model Y L (6-seat AWD)',
+          type: 'large-suv',
+          size: '4.97m',
+          price: 74900,
+          battery: '~82 kWh NMC',
+          batteryN: 82,
+          range: '681 km',
+          rangeN: 681,
+          features: [
+            'Three-row 2+2+2 seating',
+            'Dual motor all-wheel drive',
+            'V2L capability (first in Aus)',
+            '250 kW DC charging speed',
+            'Deliveries from Q2 2026',
+            '116L front trunk + 420L boot',
+          ],
+        },
+        {
+          brand: 'Kia',
+          model: 'EV9 GT-Line AWD',
+          type: 'large-suv',
+          size: '5.01m',
+          price: 97000,
+          battery: '100 kWh',
+          batteryN: 100,
+          range: '410 km',
+          rangeN: 410,
+          features: [
+            '7-seat family SUV',
+            '374 kW dual motor AWD',
+            '100 kWh large battery',
+            'V2L & V2H power export',
+            '27" panoramic display cluster',
+            'ANCAP 5-star safety',
+          ],
+        },
+        {
+          brand: 'KGM',
+          model: 'Musso EV 2WD',
+          type: 'ute',
+          size: '5.29m',
+          price: 60000,
+          battery: '~73 kWh',
+          batteryN: 73,
+          range: '~420 km',
+          rangeN: 420,
+          features: [
+            "Australia's cheapest EV ute",
+            '152 kW single motor RWD',
+            'Payload-rated tray body',
+            'DC fast charge capable',
+            'Fleet-friendly pricing',
+            'Available as 4WD variant too',
+          ],
+        },
+      ]
+
+      let currentFilter = 'all'
+      let currentSort = 'price'
+      let currentView = 'table'
+      let currentSearch = ''
+      let sortDir = {}
+
+      function getFiltered() {
+        let data = evs.filter(e => {
+          const matchFilter =
+            currentFilter === 'all' || e.type === currentFilter
+          const q = currentSearch.toLowerCase()
+          const matchSearch =
+            !q ||
+            e.brand.toLowerCase().includes(q) ||
+            e.model.toLowerCase().includes(q) ||
+            TYPE_LABELS[e.type].toLowerCase().includes(q)
+          return matchFilter && matchSearch
+        })
+        const asc = sortAsc[currentSort] !== false
+        if (currentSort === 'price')
+          data.sort((a, b) => (asc ? a.price - b.price : b.price - a.price))
+        else if (currentSort === 'range')
+          data.sort((a, b) =>
+            asc ? a.rangeN - b.rangeN : b.rangeN - a.rangeN,
+          )
+        else if (currentSort === 'battery')
+          data.sort((a, b) =>
+            asc ? a.batteryN - b.batteryN : b.batteryN - a.batteryN,
+          )
+        else if (currentSort === 'name')
+          data.sort((a, b) =>
+            asc
+              ? a.model.localeCompare(b.model)
+              : b.model.localeCompare(a.model),
+          )
+        else if (currentSort === 'brand')
+          data.sort((a, b) =>
+            asc
+              ? a.brand.localeCompare(b.brand)
+              : b.brand.localeCompare(a.brand),
+          )
+        return data
+      }
+
+      function badge(type) {
+        return `<span class="type-badge" style="background:${TYPE_BG[type]};color:${TYPE_COLORS[type]}">${TYPE_LABELS[type]}</span>`
+      }
+
+      function renderTable(data) {
+        const tbody = document.getElementById('table-body')
+        if (!data.length) {
+          tbody.innerHTML = ''
+          return
+        }
+        tbody.innerHTML = data
+          .map((e, i) => {
+            const pct = Math.round((e.rangeN / MAX_RANGE) * 100)
+            return `<tr style="animation-delay:${i * 0.025}s" onclick="openModal(${evs.indexOf(e)})">
+      <td class="brand-cell">${e.brand}</td>
+      <td><div class="model-cell"><span class="model-name">${e.model}</span></div></td>
+      <td>${badge(e.type)}</td>
+      <td class="size-cell">${e.size}</td>
+      <td><div class="price-cell">$${e.price.toLocaleString()}</div><div class="price-sub">+ on-road costs</div></td>
+      <td class="battery-cell">${e.battery}</td>
+      <td class="range-cell">
+        <div class="range-val">${e.range}</div>
+        <div class="range-bar-wrap"><div class="range-bar-fill" style="width:${pct}%"></div></div>
+      </td>
+      <td class="features-cell">${e.features.slice(0, 3).join('<br>')}</td>
+    </tr>`
+          })
+          .join('')
+      }
+
+      function renderCards(data) {
+        const grid = document.getElementById('cards-grid')
+        if (!data.length) {
+          grid.innerHTML = ''
+          return
+        }
+        grid.innerHTML = data
+          .map((e, i) => {
+            const pct = Math.round((e.rangeN / MAX_RANGE) * 100)
+            const color = TYPE_COLORS[e.type]
+            return `<div class="card" style="animation-delay:${i * 0.04}s;--type-color:${color}" onclick="openModal(${evs.indexOf(e)})">
+      <div class="card-header">
+        <div>
+          <div class="card-title">${e.model}</div>
+          <div class="card-brand">${e.brand}</div>
+        </div>
+        <div>
+          <div class="card-price">$${e.price.toLocaleString()}</div>
+          <div class="card-price-label">+ on-road costs</div>
+        </div>
+      </div>
+      <div style="margin-bottom:12px">${badge(e.type)}</div>
+      <div class="card-metrics">
+        <div class="metric"><div class="metric-label">Battery</div><div class="metric-value">${e.battery}</div></div>
+        <div class="metric"><div class="metric-label">Size</div><div class="metric-value">${e.size}</div></div>
+        <div class="metric"><div class="metric-label">Type</div><div class="metric-value" style="font-size:12px">${TYPE_LABELS[e.type]}</div></div>
+      </div>
+      <div class="card-range">
+        <div class="card-range-header">
+          <span class="card-range-label">WLTP Range</span>
+          <span class="card-range-val">${e.range}</span>
+        </div>
+        <div class="card-bar"><div class="card-bar-fill" style="width:${pct}%"></div></div>
+      </div>
+      <div class="card-features">
+        ${e.features
+          .slice(0, 4)
+          .map(f => `<div class="card-feature">${f}</div>`)
+          .join('')}
+      </div>
+    </div>`
+          })
+          .join('')
+      }
+
+      function render() {
+        const data = getFiltered()
+        const count = data.length
+        document.getElementById('result-count').innerHTML =
+          `Showing <span>${count}</span> vehicle${count !== 1 ? 's' : ''}`
+        document.getElementById('stat-total').textContent = count
+        const isEmpty = count === 0
+        document.getElementById('empty-state').style.display = isEmpty
+          ? 'block'
+          : 'none'
+        if (currentView === 'table') {
+          document.getElementById('table-view').style.display = isEmpty
+            ? 'none'
+            : 'block'
+          document.getElementById('cards-view').style.display = 'none'
+          renderTable(data)
+        } else {
+          document.getElementById('table-view').style.display = 'none'
+          document.getElementById('cards-view').style.display = isEmpty
+            ? 'none'
+            : 'block'
+          renderCards(data)
+        }
+      }
+
+      function setView(v) {
+        currentView = v
+        document
+          .getElementById('btn-table')
+          .classList.toggle('active', v === 'table')
+        document
+          .getElementById('btn-cards')
+          .classList.toggle('active', v === 'cards')
+        render()
+      }
+
+      // Filters
+      document.getElementById('filter-group').addEventListener('click', e => {
+        const btn = e.target.closest('.pill')
+        if (!btn) return
+        document
+          .querySelectorAll('.pill')
+          .forEach(p => p.classList.remove('active'))
+        btn.classList.add('active')
+        currentFilter = btn.dataset.filter
+        render()
+      })
+
+      // Sort
+      document.getElementById('sort-select').addEventListener('change', e => {
+        currentSort = e.target.value
+        updateHeaderArrows()
+        render()
+      })
+
+      // Search
+      document.getElementById('search').addEventListener('input', e => {
+        currentSearch = e.target.value
+        render()
+      })
+
+      // Table header sort
+      let sortAsc = {
+        brand: true,
+        name: true,
+        price: true,
+        battery: false,
+        range: false,
+      }
+
+      document.querySelector('thead').addEventListener('click', e => {
+        const th = e.target.closest('th[data-col]')
+        if (!th) return
+        const col = th.dataset.col
+        if (currentSort === col) {
+          sortAsc[col] = !sortAsc[col]
+        } else {
+          currentSort = col
+          document.getElementById('sort-select').value = col
+        }
+        updateHeaderArrows()
+        render()
+      })
+
+      function updateHeaderArrows() {
+        document.querySelectorAll('thead th[data-col]').forEach(th => {
+          const col = th.dataset.col
+          const arrow = th.querySelector('.sort-arrow')
+          const isActive = col === currentSort
+          th.classList.toggle('sorted', isActive)
+          if (arrow)
+            arrow.textContent = isActive ? (sortAsc[col] ? ' ↑' : ' ↓') : ' ↕'
+        })
+      }
+
+      // Modal
+      function openModal(idx) {
+        const e = evs[idx]
+        const color = TYPE_COLORS[e.type]
+        const pct = Math.round((e.rangeN / MAX_RANGE) * 100)
+        document.getElementById('modal-accent-bar').style.background =
+          `linear-gradient(90deg, ${color}88, ${color})`
+        document.getElementById('modal-brand').textContent = e.brand
+        document.getElementById('modal-title').textContent = e.model
+        const badgeEl = document.getElementById('modal-badge')
+        badgeEl.textContent = TYPE_LABELS[e.type]
+        badgeEl.style.background = TYPE_BG[e.type]
+        badgeEl.style.color = color
+        document.getElementById('modal-metrics').innerHTML = `
+    <div class="modal-metric"><div class="modal-metric-label">Price</div><div class="modal-metric-value accent">$${e.price.toLocaleString()}</div></div>
+    <div class="modal-metric"><div class="modal-metric-label">Battery</div><div class="modal-metric-value">${e.battery}</div></div>
+    <div class="modal-metric"><div class="modal-metric-label">Size (length)</div><div class="modal-metric-value">${e.size}</div></div>
+  `
+        document.getElementById('modal-range-val').textContent = e.range
+        document.getElementById('modal-range-fill').style.width = pct + '%'
+        document.getElementById('modal-features-list').innerHTML = e.features
+          .map(
+            f =>
+              `<div class="modal-feature-item"><div class="modal-feature-dot"></div><span>${f}</span></div>`,
+          )
+          .join('')
+        document.getElementById('modal-note').textContent =
+          `Price shown is $${e.price.toLocaleString()} before on-road costs. Add approximately $3,000–$6,000 for stamp duty, registration and CTP in Victoria. WLTP range is manufacturer-claimed; real-world driving is typically 10–20% lower.`
+        document.getElementById('modal-overlay').classList.add('open')
+        document.body.style.overflow = 'hidden'
+      }
+
+      function closeModal(e) {
+        if (
+          e &&
+          e.target !== document.getElementById('modal-overlay') &&
+          !e.target.classList.contains('modal-close')
+        )
+          return
+        document.getElementById('modal-overlay').classList.remove('open')
+        document.body.style.overflow = ''
+      }
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape')
+          closeModal({ target: document.getElementById('modal-overlay') })
+      })
+
+      updateHeaderArrows()
+      render()
+    </script>
+  </body>
+</html>
