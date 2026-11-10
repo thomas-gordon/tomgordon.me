@@ -2,7 +2,68 @@
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none;
   z-index: 9999;
+  pointer-events: none;
   will-change: transform;
+  view-transition-name: mouse-cursor;
+  transition: opacity 150ms ease;
+
+  &[data-visible='false'] {
+    opacity: 0;
+  }
+}
+
+.mouse {
+  display: block;
+  overflow: visible;
+  transition: scale 150ms ease;
+  rotate: -120deg;
+}
+
+.cursor[data-hover='true'] .mouse {
+  scale: 1.15;
+}
+
+.cursor[data-pressed='true'] .mouse {
+  scale: 0.85;
+}
+
+.tail {
+  stroke: #999999;
+  stroke-width: 1.5;
+}
+
+.eye {
+  fill: var(--mouse-eye);
+  filter: drop-shadow(0 0 1.5px var(--mouse-eye-glow));
+}
+
+.nose {
+  fill: #e07070;
+}
+
+.whiskers {
+  stroke: #8a8a8a;
+  stroke-width: 0.6;
+  stroke-linecap: round;
+  opacity: 0;
+  transform-origin: 39px 14px;
+  transition: opacity 150ms ease;
+}
+
+/* Sniff anything clickable. */
+.cursor[data-hover='true'] .whiskers {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cursor[data-hover='true'] .whiskers {
+    animation: twitch 300ms ease-in-out infinite alternate;
+  }
+}
+
+@keyframes twitch {
+  to {
+    scale: 1 1.25;
+  }
 }

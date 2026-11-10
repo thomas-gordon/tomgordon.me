@@ -23,23 +23,20 @@
   },
   "homepage": "https://github.com/thomas-gordon/tomgordon.me#readme",
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
-    "@tanstack/react-query": "^5.90.21",
-    "@tanstack/react-router": "^1.125.6",
-    "@tanstack/react-start": "^1.125.6",
-    "@vitejs/plugin-react": "^4.6.0",
+    "@tailwindcss/vite": "^4.3.5",
+    "@tanstack/react-query": "^5.107.1",
+    "@tanstack/react-router": "^1.170.46",
+    "@tanstack/react-start": "^1.169.5",
+    "@vitejs/plugin-react": "^6.3.0",
     "eslint": "^9.30.1",
-    "fontfaceobserver": "^2.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-markdown": "^10.1.0",
-    "remark-gfm": "^4.0.1",
-    "vite": "^7.0.3",
-    "zod": "^3.25.76"
+    "vite": "^8.3.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
-    "@tanstack/react-query-devtools": "^5.91.3",
+    "@netlify/vite-plugin-tanstack-start": "^1.3.19",
+    "@tanstack/react-query-devtools": "^5.107.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "eslint-config-prettier": "^10.1.5",
@@ -48,10 +45,9 @@
     "lint-staged": "^15.2.9",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "~0.6.13",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "^4.3.5",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.36.0",
-    "vite-tsconfig-paths": "^5.1.4"
+    "typescript-eslint": "^8.36.0"
   },
   "lint-staged": {
     "**/*.{tsx,ts}": [

@@ -1,31 +1,16 @@
+import type { AnchorHTMLAttributes } from 'react'
+import { linkProps } from '../../utils/links'
 import styles from './styles.module.css'
-import { Link } from '@tanstack/react-router'
 
-type ButtonProps = {
-  href?: string
-  to?: string
-  onClick?: () => void
-  children?: React.ReactNode
-  size?: 'default' | 'small' | 'large'
-  value?: string
-  target?: string
-}
+type Props = AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }
 
-const Button = (props: ButtonProps) => {
-  // <Link></Link>
-  if (props.to) {
-    return <Link {...props} className={styles.button} />
-  }
-  // <a></a>
-  if (props.href) {
-    return <a {...props} className={styles.button} />
-  }
+/** A chunky, pressable link. Off-site links open in a new tab. */
+const Button = ({ href, className, ...rest }: Props) => (
+  <a
+    {...linkProps(href)}
+    {...rest}
+    className={className ? `${styles.button} ${className}` : styles.button}
+  />
+)
 
-  // <input type="submit" />
-  if (!props.children) {
-    return <button type="submit" {...props} className={styles.button} />
-  }
-
-  return <button {...props} className={styles.button} />
-}
 export default Button

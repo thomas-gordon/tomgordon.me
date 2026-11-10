@@ -1,0 +1,41 @@
+.list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.item {
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent-soft);
+  transition: border-color 200ms ease;
+
+  &:hover {
+    border-color: var(--cheese);
+  }
+}
+
+.name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ink);
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover .arrow {
+    translate: 2px -2px;
+  }
+}
+
+.arrow {
+  display: inline-block;
+  margin-left: 0.25em;
+  font-size: 0.85em;
+  transition: translate 150ms ease;
+}
+
+.summary {
+  margin-top: 0.25rem;
+  color: var(--ink-soft);
+}

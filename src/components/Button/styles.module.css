@@ -1,13 +1,42 @@
-@reference '../../root.css';
 .button {
-  @apply px-4 py-2.5 rounded-xl shadow-[0_5px_#b8cee6] text-gray-800 font-medium text-sm
-    outline-0 cursor-pointer no-underline relative border border-[#d1dae6]
-    bg-white gap-2.5 items-center inline-flex whitespace-nowrap
-    transition-[top,box-shadow,background-color] duration-100
-    hover:bg-blue-50 hover:top-[2px] hover:shadow-[0_3px_#b8cee6]
-    active:shadow-[0_0_#b8cee6] active:top-[5px] active:bg-blue-100;
+  position: relative;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  box-shadow: 0 5px var(--press);
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    top 100ms ease,
+    box-shadow 100ms ease,
+    background-color 100ms ease;
+
+  &:hover {
+    top: 2px;
+    color: var(--ink-soft);
+    background: var(--surface-hover);
+    box-shadow: 0 3px var(--press);
+  }
+
+  &:active {
+    top: 5px;
+    background: var(--surface-active);
+    box-shadow: 0 0 var(--press);
+  }
 
   svg {
-    @apply w-4 h-4 fill-gray-600 flex-shrink-0;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    fill: currentColor;
+    opacity: 0.75;
   }
 }

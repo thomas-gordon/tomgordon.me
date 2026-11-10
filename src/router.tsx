@@ -5,31 +5,28 @@ import {
 } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 
-export function createRouter() {
+export function getRouter() {
   const router = createTanStackRouter({
     routeTree,
     scrollRestoration: true,
     defaultNotFoundComponent: () => {
       return (
-        <div className="text-center">
-          <h1 className="text-6xl mt-10">The void offers nothing</h1>
-          <p>Maybe you wanted to read about Tom Gordon, frontend engineer?</p>
+        <main className="mx-auto flex min-h-screen max-w-[640px] flex-col items-center justify-center gap-4 bg-surface px-6 text-center">
+          <h1 className="text-5xl font-bold tracking-tight text-ink">
+            The void offers nothing
+          </h1>
+          <p className="text-ink-muted">
+            Maybe you wanted to read about Tom Gordon, technical lead?
+          </p>
           <p>
-            <Link to="/" className="text-blue hover:underline">
+            <Link to="/" className="font-semibold">
               Read that instead!
             </Link>
           </p>
-        </div>
+        </main>
       )
     },
   })
 
   return router
-}
-
-declare module '@tanstack/react-router' {
-  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-  interface Register {
-    router: ReturnType<typeof createRouter>
-  }
 }

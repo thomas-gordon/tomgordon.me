@@ -1,6 +1,0 @@
-@reference "../../root.css";
-
-.li {
-  @apply block;
-  animation: fadeInUp 0.4s ease both;
-}

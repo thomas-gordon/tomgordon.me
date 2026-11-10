@@ -1,0 +1,57 @@
+.toolkit {
+  display: grid;
+  gap: 0.875rem;
+  margin-top: 1.25rem;
+}
+
+.group {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+
+  @media (max-width: 30rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: var(--chip);
+  color: var(--chip-ink);
+  transition:
+    translate 200ms cubic-bezier(0.3, 1.6, 0.6, 1),
+    rotate 200ms cubic-bezier(0.3, 1.6, 0.6, 1),
+    background-color 150ms ease;
+
+  &:hover {
+    color: var(--chip-ink);
+    background: var(--accent-soft);
+    translate: 0 -3px;
+    rotate: -3deg;
+  }
+}
+
+/* Alternate the tilt so a row of chips wobbles rather than marches. */
+li:nth-child(even) > .chip:hover {
+  rotate: 3deg;
+}

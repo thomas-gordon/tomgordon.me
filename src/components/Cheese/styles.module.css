@@ -1,0 +1,93 @@
+.cheese {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  transition: scale 150ms ease;
+
+  &:hover {
+    scale: 1.1;
+  }
+
+  svg {
+    display: block;
+    overflow: visible;
+  }
+}
+
+.face {
+  fill: var(--cheese);
+}
+
+.top {
+  fill: color-mix(in srgb, var(--cheese) 60%, white);
+}
+
+.edge {
+  stroke: var(--cheese-rind);
+  stroke-width: 1.5;
+}
+
+.hole {
+  fill: var(--cheese-rind);
+  opacity: 0.6;
+}
+
+.nom {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cheese-rind);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.done {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wobble {
+    animation: wobble 350ms ease;
+  }
+
+  .nom {
+    animation: nom 700ms ease-out;
+  }
+
+  .done {
+    animation: pop 400ms cubic-bezier(0.3, 1.6, 0.6, 1) both;
+  }
+}
+
+@keyframes wobble {
+  25% {
+    rotate: -8deg;
+  }
+  75% {
+    rotate: 6deg;
+  }
+}
+
+@keyframes nom {
+  from {
+    opacity: 1;
+    translate: -50% 0;
+  }
+  to {
+    opacity: 0;
+    translate: -50% -18px;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    scale: 0.6;
+  }
+}

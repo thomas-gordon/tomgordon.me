@@ -1,21 +1,27 @@
 import { useQuery } from '@tanstack/react-query'
+import { site } from '../content'
 
-type GitHubRepo = {
+export type GitHubRepo = {
   id: number
   name: string
   description: string | null
   html_url: string
   stargazers_count: number
   language: string | null
-  updated_at: string
+  pushed_at: string
+  fork: boolean
+  archived: boolean
 }
+
+const SHOW = 5
 
 const fetchRepos = async (): Promise<GitHubRepo[]> => {
   const res = await fetch(
-    'https://api.github.com/users/thomas-gordon/repos?sort=updated&per_page=5',
+    `https://api.github.com/users/${site.githubUser}/repos?sort=pushed&per_page=20`,
   )
   if (!res.ok) throw new Error('Failed to fetch repos')
-  return res.json() as Promise<GitHubRepo[]>
+  const repos = (await res.json()) as GitHubRepo[]
+  return repos.filter(repo => !repo.fork && !repo.archived).slice(0, SHOW)
 }
 
 export function useGitHubRepos() {

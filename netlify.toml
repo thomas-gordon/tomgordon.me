@@ -1,0 +1,9 @@
+# Since TanStack Start 1.132 the client build lands in dist/client and
+# @netlify/vite-plugin-tanstack-start writes the SSR function to .netlify/v1.
+[build]
+  command = "yarn build"
+  publish = "dist/client"
+
+[dev]
+  command = "yarn dev"
+  port = 3000

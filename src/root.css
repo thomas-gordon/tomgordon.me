@@ -1,118 +1,169 @@
 @import 'tailwindcss';
 
 /**
-  * Custom utilities
-  */
+ * Design tokens
+ *
+ * Every colour is a light-dark() pair, so one set of tokens covers both
+ * themes. The page follows the OS setting until someone uses the theme
+ * toggle, which pins `data-theme` on <html>.
+ */
 
-@layer utilities {
-  /* A util for managing overflow vertically (esp in modal scenarios) */
-  .justify-safe-center {
-    justify-content: safe center;
-  }
+:root {
+  color-scheme: light dark;
+  interpolate-size: allow-keywords;
+
+  --page: light-dark(#f1f4f8, #0d1420);
+  --page-dot: light-dark(#b8c8db, #233047);
+  --surface: light-dark(#ffffff, #141c2b);
+  --surface-hover: light-dark(#eff6ff, #1b2740);
+  --surface-active: light-dark(#dbeafe, #213052);
+  --ink: light-dark(#111827, #e6ecf5);
+  --ink-soft: light-dark(#1f2937, #cdd6e4);
+  --ink-muted: light-dark(#6b7280, #8b9ab0);
+  --line: light-dark(#d1dae6, #26334a);
+  --accent: light-dark(#1d4ed8, #7cb1ff);
+  --accent-strong: light-dark(#1e3a8a, #b5d2ff);
+  --accent-soft: light-dark(#bfdbfe, #2b4677);
+  --chip: light-dark(#dbeafe, #1c2f57);
+  --chip-ink: light-dark(#1d4ed8, #a8c8ff);
+  --press: light-dark(#b8cee6, #070b13);
+  --shadow: light-dark(rgb(30 58 138 / 0.07), rgb(0 0 0 / 0.4));
+  --cheese: #fcd34d;
+  --cheese-rind: #f59e0b;
+  --mouse-eye: light-dark(#111111, #bef264);
+  --mouse-eye-glow: light-dark(transparent, #bef264);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+}
+
+@theme {
+  --font-sans:
+    'Space Grotesk', 'Helvetica Neue', Helvetica, Arial, ui-sans-serif,
+    system-ui, sans-serif;
 }
 
 /**
-  * Entrance animations
-  */
+ * Base
+ */
 
-@keyframes fadeInUp {
+@layer base {
+  html {
+    background-color: var(--page);
+  }
+
+  body {
+    min-height: 100vh;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
+    background-color: var(--page);
+    background-image: radial-gradient(var(--page-dot) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--accent);
+    text-underline-offset: 0.15em;
+    transition: color 150ms ease;
+
+    &:hover {
+      color: var(--accent-strong);
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background-color: var(--cheese);
+    color: #111111;
+  }
+}
+
+/* The custom mouse cursor adds this class only once it has mounted, so the
+   native cursor never disappears if JavaScript fails or is still loading. */
+html.has-mouse-cursor,
+html.has-mouse-cursor * {
+  cursor: none !important;
+}
+
+/**
+ * Motion
+ *
+ * Everything is visible by default. Entrance effects are layered on only
+ * when the visitor hasn't asked for reduced motion, and scroll-linked
+ * reveals only where the browser supports scroll-driven animations, so
+ * content never depends on JavaScript to appear.
+ */
+
+@keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(16px) scale(0.98);
+    translate: 0 16px;
+    scale: 0.98;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .enter {
+    animation: rise 0.5s ease both;
+  }
+
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 90%;
+    }
+  }
+
+  /* Theme switch: the new theme spreads out from the toggle button. */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-new(root) {
+    animation: theme-reveal 550ms ease-in-out;
+  }
+
+  ::view-transition-group(mouse-cursor),
+  ::view-transition-new(mouse-cursor) {
+    animation: none;
+  }
+
+  ::view-transition-old(mouse-cursor) {
+    display: none;
+  }
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 100%) var(--vt-y, 0));
   }
   to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.pre-animate {
-  opacity: 0;
-}
-
-.animate-in {
-  animation: fadeInUp 0.45s ease both;
-}
-
-/**
-  * Accordion
-  */
-
-.accordion-body {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 350ms ease;
-}
-
-.accordion-body.open {
-  grid-template-rows: 1fr;
-}
-
-.accordion-inner {
-  overflow: hidden;
-}
-
-/**
-  * Component styles converted from styled-components
-  */
-
-html,
-body {
-  @apply w-full h-full;
-}
-table {
-  @apply w-full mb-8 text-left rtl:text-right;
-}
-th,
-td {
-  @apply text-left p-3;
-}
-th {
-  @apply bg-gray-200 border align-top border-gray-300 font-semibold;
-}
-td {
-  @apply border align-top border-gray-300;
-  &:first-child {
-    @apply w-1/6;
-  }
-}
-body {
-  font:
-    18px/150% 'Helvetica Neue',
-    Helvetica,
-    Arial,
-    sans-serif;
-  background-color: #f1f4f8;
-  background-image: radial-gradient(#b8c8db 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-
-body.fontLoaded {
-  font:
-    18px/150% 'Space Grotesk',
-    'Helvetica Neue',
-    Helvetica,
-    Arial,
-    sans-serif;
-}
-
-p,
-label {
-  line-height: 1.5em;
-}
-
-ul {
-  @apply list-disc pl-5;
-}
-a {
-  @apply text-blue-700 hover:text-blue-900 transition-colors duration-150;
-}
-p {
-  @apply mt-6 mb-4;
-}
-
-@media (pointer: fine) {
-  * {
-    cursor: none !important;
+    clip-path: circle(150vmax at var(--vt-x, 100%) var(--vt-y, 0));
   }
 }
